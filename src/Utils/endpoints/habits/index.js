@@ -17,3 +17,11 @@ export const updateHabit = ({ habit_id, body, token }) => {
     },
   });
 };
+
+export const getHabits = (token) => {
+  return api.get(`habits/personal/`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
