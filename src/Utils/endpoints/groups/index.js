@@ -15,3 +15,21 @@ export const getSubscriptions = (token) => {
     },
   });
 };
+
+export const subscribeToGroup = (token) => {
+  return api.post(`groups/20/subscribe/`, {
+    headers: {
+      // null: null,
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const editGroup = ({ group_id, body, token }) => {
+  return api.patch(`groups/${group_id}/`, body, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
