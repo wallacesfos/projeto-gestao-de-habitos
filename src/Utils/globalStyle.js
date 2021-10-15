@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const globalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap');
 
     :root{
@@ -20,6 +20,10 @@ export const globalStyle = createGlobalStyle`
         box-sizing: border-box;
         text-decoration: none;
         list-style: none;
+    }
+
+    body{
+        background-color: var(--background)
     }
 
     .btn-primary{
