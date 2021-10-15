@@ -1,6 +1,6 @@
 import api from "../../api";
 
-const createAcount = (username, email, password) => {
+export const createAcount = (username, email, password) => {
   return api.post(
     "users/",
     {
@@ -16,4 +16,17 @@ const createAcount = (username, email, password) => {
   );
 };
 
-export default createAcount;
+export const login = (username, password) => {
+  return api.post(
+    "sessions/",
+    {
+      username: username,
+      password: password,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+};
