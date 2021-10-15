@@ -90,12 +90,12 @@ export const ContainerApp = styled.div`
 `;
 export const ContainerFooter = styled.div`
   width: 100%;
-  min-height: 200px;
+  min-height: 0px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   background-color: var(--background-escuro);
-  px;
+
   div {
     flex-basis: 100%;
     color: var(--color-cinzaEscuro);
