@@ -6,12 +6,12 @@ export const getGroupActivities = ({ group_id, page = 1 }) => {
   return api.get(url);
 };
 
-export const getSpecificActivitie = (activitie_id) => {
-  return api.get(`activities/${activitie_id}/`);
+export const getSpecificActivity = (activity_id) => {
+  return api.get(`activities/${activity_id}/`);
 };
 
-export const createGoal = ({ body, token }) => {
-  return api.post(`goals/`, body, {
+export const createActivity = ({ body, token }) => {
+  return api.post(`activities/`, body, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -19,8 +19,8 @@ export const createGoal = ({ body, token }) => {
   });
 };
 
-export const updateGoal = ({ goal_id, body, token }) => {
-  return api.patch(`goals/${goal_id}/`, body, {
+export const updateActivity = ({ activity_id, body, token }) => {
+  return api.patch(`activities/${activity_id}/`, body, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -28,8 +28,8 @@ export const updateGoal = ({ goal_id, body, token }) => {
   });
 };
 
-export const deleteGoal = ({ goal_id, token }) => {
-  return api.delete(`goals/${goal_id}/`, {
+export const deleteActivity = ({ activity_id, token }) => {
+  return api.delete(`activities/${activity_id}/`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
