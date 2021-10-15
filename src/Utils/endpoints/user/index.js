@@ -30,3 +30,18 @@ export const login = (username, password) => {
     }
   );
 };
+
+export const updateProfile = (id, newUsername, token) => {
+  return api.patch(
+    `users/${id}/`,
+    {
+      username: newUsername,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
