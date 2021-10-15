@@ -13,6 +13,15 @@ export const globalStyle = createGlobalStyle`
         --success: #019733;
         --blue: #2d4b94;
     }
+
+    body,div,main,section,ul,li,a,h1,h2,h3,h4,h5,h6{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+    }
+
     .btn-primary{
         background-color: #FF6400 !important;
         border-radius: 15px;
@@ -30,5 +39,6 @@ export const globalStyle = createGlobalStyle`
     .btn-primary:hover{
         background-color: rgb(255, 131, 45) !important;
     }
+
 
 `;
