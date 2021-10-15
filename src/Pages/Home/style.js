@@ -81,6 +81,8 @@ export const ContainerApp = styled.div`
     color: var(--black);
     font-family: "Red Hat Text", Arial, Helvetica, sans-serif;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
   }
   @media (min-width: 600px) {
     flex-direction: row;
@@ -88,10 +90,12 @@ export const ContainerApp = styled.div`
 `;
 export const ContainerFooter = styled.div`
   width: 100%;
+  min-height: 200px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   background-color: var(--background-escuro);
+  px;
   div {
     flex-basis: 100%;
     color: var(--color-cinzaEscuro);
