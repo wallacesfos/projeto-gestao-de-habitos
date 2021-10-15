@@ -1,7 +1,12 @@
+import jwtDecode from "jwt-decode";
 import api from "../../api";
 
 export const createHabit = ({ body, token }) => {
-  return api.post(`habits/`, body, {
+  const { user_id } = jwtDecode(token);
+
+  const fullBody = { ...body, user: user_id };
+
+  return api.post(`habits/`, fullBody, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
