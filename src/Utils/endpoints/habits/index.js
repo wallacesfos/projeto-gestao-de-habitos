@@ -25,3 +25,11 @@ export const getHabits = (token) => {
     },
   });
 };
+
+export const deleteHabit = ({ habit_id, token }) => {
+  return api.delete(`habits/${habit_id}/`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
