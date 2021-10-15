@@ -1,0 +1,19 @@
+import api from "../../api";
+
+export const createHabit = ({ body, token }) => {
+  return api.post(`habits/`, body, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const updateHabit = ({ habit_id, body, token }) => {
+  return api.patch(`habits/${habit_id}/`, body, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
