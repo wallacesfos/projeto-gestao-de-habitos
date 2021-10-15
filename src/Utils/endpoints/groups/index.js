@@ -17,9 +17,9 @@ export const getSubscriptions = (token) => {
 };
 
 export const subscribeToGroup = (token) => {
-  return api.post(`groups/20/subscribe/`, {
+  return api.post(`/groups/20/subscribe/`, {
     headers: {
-      // null: null,
+      null: null,
       Authorization: `Bearer ${token}`,
     },
   });
@@ -32,4 +32,34 @@ export const editGroup = ({ group_id, body, token }) => {
       Authorization: `Bearer ${token}`,
     },
   });
+};
+
+export const createGroup = ({ body, token }) => {
+  return api.post(`groups/`, body, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const getGroups = (params = null) => {
+  const page = params?.page;
+  const category = params?.category;
+
+  let url = "groups/";
+
+  if (page || category) {
+    url += "?";
+  }
+
+  if (page) {
+    url += `page=${page}&`;
+  }
+
+  if (category) {
+    url += `category=${category}&`;
+  }
+
+  return api.get(url);
 };
