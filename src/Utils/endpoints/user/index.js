@@ -1,3 +1,4 @@
+import jwtDecode from "jwt-decode";
 import api from "../../api";
 
 export const createAcount = (body) => {
@@ -16,7 +17,9 @@ export const login = (body) => {
   });
 };
 
-export const updateProfile = ({ user_id, body, token }) => {
+export const updateProfile = ({ body, token }) => {
+  const { user_id } = jwtDecode(token);
+
   return api.patch(`users/${user_id}/`, body, {
     headers: {
       "Content-Type": "application/json",
