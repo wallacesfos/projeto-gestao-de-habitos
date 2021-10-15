@@ -1,47 +1,26 @@
 import api from "../../api";
 
-export const createAcount = (username, email, password) => {
-  return api.post(
-    "users/",
-    {
-      username: username,
-      email: email,
-      password: password,
+export const createAcount = (body) => {
+  return api.post("users/", body, {
+    headers: {
+      "Content-Type": "application/json",
     },
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  });
 };
 
-export const login = (username, password) => {
-  return api.post(
-    "sessions/",
-    {
-      username: username,
-      password: password,
+export const login = (body) => {
+  return api.post("sessions/", body, {
+    headers: {
+      "Content-Type": "application/json",
     },
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  });
 };
 
-export const updateProfile = (id, newUsername, token) => {
-  return api.patch(
-    `users/${id}/`,
-    {
-      username: newUsername,
+export const updateProfile = ({ user_id, body, token }) => {
+  return api.patch(`users/${user_id}/`, body, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
-    {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  });
 };
