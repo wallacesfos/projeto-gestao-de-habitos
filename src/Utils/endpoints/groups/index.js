@@ -16,9 +16,9 @@ export const getSubscriptions = (token) => {
   });
 };
 
-export const subscribeToGroup = (token) => {
+export const subscribeToGroup = ({ group_id, token }) => {
   return api.post(
-    `/groups/20/subscribe/`,
+    `/groups/${group_id}/subscribe/`,
     {},
     {
       headers: {
@@ -65,4 +65,8 @@ export const getGroups = (params = null) => {
   }
 
   return api.get(url);
+};
+
+export const getSpecificGroup = (group_id) => {
+  return api.get(`/groups/${group_id}/`);
 };
