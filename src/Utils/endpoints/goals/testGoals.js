@@ -1,13 +1,13 @@
-import { getGroupGoal } from ".";
+const token = "";
 
-const args = {
-  group_id: 2,
-};
+const body = {};
+
+const args = {};
 
 const testGoals = () => {
-  getGroupGoal(args)
-    .then((resp) => console.log(resp))
-    .catch((err) => console.log(err));
+  // deleteGoal(args)
+  //   .then((resp) => console.log(resp))
+  //   .catch((err) => console.log(err));
 };
 
 export default testGoals;
