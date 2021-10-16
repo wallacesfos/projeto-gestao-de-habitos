@@ -5,7 +5,6 @@ export const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 10px;
-  background-color: var(--background);
   .column-reverse {
     flex-direction: column-reverse;
   }
@@ -67,6 +66,12 @@ export const ContainerButton = styled.div`
   color: var(--color-cinzaEscuro);
   font-family: "Red Hat Text", Arial, Helvetica, sans-serif;
   font-weight: 600;
+  button {
+    width: 300px;
+    height: 50px;
+    font-size: 1.5rem;
+    border-radius: 100px;
+  }
 `;
 export const ContainerApp = styled.div`
   width: 100%;
@@ -90,14 +95,14 @@ export const ContainerApp = styled.div`
 `;
 export const ContainerFooter = styled.div`
   width: 100%;
-  min-height: 0px;
+  min-height: 100px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   background-color: var(--background-escuro);
-
-  div {
+  .footer-col {
     flex-basis: 100%;
+    max-width: 500px;
     color: var(--color-cinzaEscuro);
     font-family: "Red Hat Text", Arial, Helvetica, sans-serif;
     font-weight: 600;
@@ -111,5 +116,8 @@ export const ContainerFooter = styled.div`
   }
   @media (min-width: 600px) {
     flex-direction: row;
+    div {
+      margin: 0 auto;
+    }
   }
 `;

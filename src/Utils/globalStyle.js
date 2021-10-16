@@ -27,6 +27,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .btn-primary{
+        @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap');
         background-color: #FF6400 !important;
         border-radius: 15px;
         width: 200px;
@@ -38,6 +39,8 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 15px;
         font-weight: bold;
         cursor: pointer;
+        font-family: "Red Hat Text";
+        font-weight: 600;
     }
     
     .btn-primary:hover{
