@@ -19,42 +19,7 @@ import groupCategories from "../../Utils/groupCatecories";
 import stringNormalizer from "../../Utils/stringNormalizer";
 import stringCutter from "../../Utils/stringCutter";
 
-const group = {
-  id: 21,
-  name: "Interess",
-  description: "Interessados em aprimorar suas habilidades",
-  category: "Saúde",
-  creator: {
-    id: 29,
-    username: "wessbastos",
-    email: "wessbastos@teste.com",
-  },
-  users_on_group: [
-    {
-      id: 29,
-      username: "wessbastos",
-      email: "wessbastos@teste.com",
-    },
-    {
-      id: 32,
-      username: "felipesilveira",
-      email: "felipelarson@gmail.com",
-    },
-  ],
-  goals: [
-    {
-      id: 17,
-      title: "Montar 2 Landing Pages",
-      difficulty: "Médio",
-      achieved: false,
-      how_much_achieved: 50,
-      group: 21,
-    },
-  ],
-  activities: [1, 5],
-};
-
-const PopupScreen = ({ setCloseState }) => {
+const PopupScreen = ({ group, setCloseState }) => {
   const { name, description, users_on_group, goals, activities, category } =
     group;
 
