@@ -47,8 +47,37 @@ export const GroupsDashboard = () => {
           <Cards title="lorem" description="lorem" />
           <Cards title="lorem" description="lorem" />
           <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
         </CardsContainer>
         {groups === true && <PopUpNewGroup />}
+      </MyGroupsContainer>
+      <MyGroupsContainer>
+        <Header>
+          <InputContainer>
+            <NewInput
+              placeholder="Digite o nome do seu grupo"
+              height="35"
+              width="550"
+            />
+            <NewButton variant="contained" innerText="Pesquisar" />
+          </InputContainer>
+        </Header>
+        <h1>Todos os Grupos</h1>
+        <CardsContainer>
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+        </CardsContainer>
       </MyGroupsContainer>
     </>
   );

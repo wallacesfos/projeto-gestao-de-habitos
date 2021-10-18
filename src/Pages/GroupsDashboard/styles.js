@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Header = styled.div`
   display: flex;
-  min-width: 100vw;
+  max-width: 100vw;
   padding: 5rem;
   justify-content: center;
 `;
@@ -37,7 +37,7 @@ export const MyGroupsContainer = styled.div`
 
 export const CardsContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   max-width: fit-content;
   margin: 0 5rem;
 `;
