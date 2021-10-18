@@ -57,6 +57,22 @@ export const Section = styled.div`
     flex-direction: row !important;
   }
 `;
+export const ContainerButton = styled.div`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-cinzaEscuro);
+  font-family: "Red Hat Text", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  button {
+    width: 300px;
+    height: 50px;
+    font-size: 1.5rem;
+    border-radius: 100px;
+  }
+`;
 export const ContainerApp = styled.div`
   width: 100%;
   min-height: 100px;
