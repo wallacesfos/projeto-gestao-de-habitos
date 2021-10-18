@@ -2,12 +2,12 @@ import Nav from "../../Components/Nav/index";
 import logo from "../../Utils/Assets/logo.png";
 import Cards from "../../Components/Cards";
 import NewCard from "../../Components/NewCard";
+import { NewButton } from "../../Components/Button";
 import {
   Container,
   Header,
   PictureContainer,
   InputContainer,
-  StyledButton,
   StyledTextField,
   MyGroupsContainer,
   CardsContainer,
@@ -33,7 +33,7 @@ export const GroupsDashboard = () => {
               variant="outlined"
               placeholder="Digite o nome do seu grupo"
             />
-            <StyledButton variant="contained">Pesquisar</StyledButton>
+            <NewButton variant="contained" innerText="Pesquisar" />
           </InputContainer>
         </Container>
       </Header>

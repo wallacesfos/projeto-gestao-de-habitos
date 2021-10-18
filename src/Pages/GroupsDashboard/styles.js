@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TextField, Button } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 
 export const Header = styled.div`
   display: flex;
@@ -47,19 +47,6 @@ export const StyledTextField = styled(TextField)`
           font-style: italic;
         }
       }
-    }
-  }
-`;
-
-export const StyledButton = styled(Button)`
-  && {
-    max-width: 100px;
-    max-height: 35px;
-    background-color: var(--orange-main);
-    border-radius: 10px;
-    color: var(--background-white);
-    :hover {
-      background-color: var(--orange-main);
     }
   }
 `;
