@@ -1,8 +1,11 @@
-import Input from "./components/Input";
-import "./Utils/globalStyle.js";
+import { GlobalStyle } from "./Utils/globalStyle";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <GlobalStyle />
+    </div>
+  );
 }
 
 export default App;
