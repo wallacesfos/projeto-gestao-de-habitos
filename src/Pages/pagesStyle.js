@@ -34,11 +34,18 @@ export const Section = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+  margin: 30px 0px;
   div {
     flex-basis: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--color-cinzaEscuro);
+    font-family: "Red Hat Text", Arial, Helvetica, sans-serif;
+    font-weight: 600;
   }
   .card {
     width: 90%;

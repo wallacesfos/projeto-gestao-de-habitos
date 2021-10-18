@@ -1,6 +1,6 @@
 import Nav from "../../Components/Nav";
 import logo from "../../Utils/Assets/logo.png";
-import svg1 from "../../Utils/Assets/svg1.svg";
+import signin from "../../Utils/Assets/Signin.svg";
 import {
   Container,
   ContainerApp,
@@ -22,14 +22,9 @@ export default function Login() {
         </ContainerNav>
         <Section>
           <div>
-            <img src={svg1} alt="Lendo um resumo da Quero!" />
+            <img src={signin} alt="Lendo um resumo da Quero!" />
           </div>
-          <div>
-            <div className="card">
-              A Quero! é uma plataforma de organização e aprendizado para novos
-              habitos ou aprimoramendo deles.
-            </div>
-          </div>
+          <div>Formulario Login</div>
         </Section>
         <ContainerApp>
           <div>Baixe Nosso App:</div>
