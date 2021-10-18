@@ -1,9 +1,9 @@
-import Cards from "./Components/Cards";
+import { GlobalStyle } from "./Utils/globalStyle.js";
 
 function App() {
   return (
     <div className="App">
-      <Cards />
+      <GlobalStyle />
     </div>
   );
 }
