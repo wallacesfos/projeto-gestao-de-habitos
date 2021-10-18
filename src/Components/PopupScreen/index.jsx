@@ -27,10 +27,10 @@ import {
 import jwtDecode from "jwt-decode";
 import { useEffect, useState } from "react";
 
-const PopupScreen = ({ group_id, setCloseState }) => {
+const PopupScreen = ({ group, setCloseState }) => {
   const { push: goTo } = useHistory();
 
-  const [group, updateGroups] = useState([]);
+  // const [group, updateGroups] = useState([]);
 
   const getGroup = (id) => {
     let group = [];
@@ -45,10 +45,6 @@ const PopupScreen = ({ group_id, setCloseState }) => {
   };
 
   getGroup(group_id);
-
-  // useEffect(() => {
-  console.log(getGroup(group_id));
-  // }, []);
 
   const { id, name, description, users_on_group, goals, activities, category } =
     group;
