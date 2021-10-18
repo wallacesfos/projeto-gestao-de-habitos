@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
         @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap');
         background-color: #FF6400 !important;
         border-radius: 15px;
-        width: 200px;
+        width: 100%;
         height: 33px;
         border: 1px solid transparent;
         -webkit-box-shadow: 7px 10px 12px -6px rgba(0,0,0,0.51); 
@@ -51,5 +51,12 @@ export const GlobalStyle = createGlobalStyle`
         background-color: rgb(255, 131, 45) !important;
     }
 
+    .inputField{
+        width: 100%;
+    }
+
+    .divTexts{
+        width: 80%
+    }
 
 `;
