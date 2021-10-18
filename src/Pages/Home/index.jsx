@@ -1,4 +1,3 @@
-import Nav from "../../Components/Nav";
 import logo from "../../Utils/Assets/logo.png";
 import svg1 from "../../Utils/Assets/svg1.svg";
 import svg2 from "../../Utils/Assets/svg2.svg";
@@ -18,9 +17,7 @@ export default function Home() {
           <div>
             <img src={logo} alt="Quero!" />
           </div>
-          <div>
-            <Nav />
-          </div>
+          <div>nav</div>
         </ContainerNav>
         <Section>
           <div>
@@ -56,9 +53,7 @@ export default function Home() {
         <div className="footer-col">
           <img src={logo} alt="Quero! footer" />
         </div>
-        <div className="footer-col">
-          <Nav footer />
-        </div>
+        <div className="footer-col">nav</div>
       </ContainerFooter>
     </>
   );
