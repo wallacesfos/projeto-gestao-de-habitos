@@ -12,8 +12,12 @@ export const GlobalStyle = createGlobalStyle`
         --danger : #b8293d;
         --success: #019733;
         --blue: #2d4b94;
+        --background-white:#ffffff;
+        --black: #000000;
     }
-
+    body{
+        background-color: var(--background);
+    }
     body,div,main,section,ul,li,a,h1,h2,h3,h4,h5,h6{
         padding: 0;
         margin: 0;
@@ -27,6 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .btn-primary{
+        @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap');
         background-color: #FF6400 !important;
         border-radius: 15px;
         width: 100%;
@@ -38,6 +43,8 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 15px;
         font-weight: bold;
         cursor: pointer;
+        font-family: "Red Hat Text";
+        font-weight: 600;
     }
     
     .btn-primary:hover{
