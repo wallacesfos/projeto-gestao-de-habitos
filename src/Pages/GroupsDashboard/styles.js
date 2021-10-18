@@ -28,7 +28,7 @@ export const InputContainer = styled.div`
 export const MyGroupsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 5rem;
+  align-items: center;
   > h1 {
     margin-bottom: 5rem;
     text-align: center;

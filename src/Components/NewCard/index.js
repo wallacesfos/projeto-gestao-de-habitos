@@ -1,6 +1,6 @@
 import { ContainerCard } from "./styles.js";
 
-function NewCard() {
-  return <ContainerCard></ContainerCard>;
+function NewCard({ callback }) {
+  return <ContainerCard onClick={callback}></ContainerCard>;
 }
 export default NewCard;

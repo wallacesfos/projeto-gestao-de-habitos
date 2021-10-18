@@ -4,6 +4,7 @@ import Cards from "../../Components/Cards";
 import NewCard from "../../Components/NewCard";
 import { NewButton } from "../../Components/Button";
 import { NewInput } from "../../Components/Input";
+import { PopUpNewGroup } from "../../Components/PopUpNewGroup";
 import {
   Container,
   Header,
@@ -18,7 +19,7 @@ export const GroupsDashboard = () => {
   const [groups, setGroups] = useState(false);
 
   const showPopUp = () => {
-    groups ? setGroups(false) : setGroups(true);
+    groups === true ? setGroups(false) : setGroups(true);
   };
   return (
     <>
@@ -41,12 +42,13 @@ export const GroupsDashboard = () => {
       <MyGroupsContainer>
         <h1>Meus Grupos</h1>
         <CardsContainer>
-          <NewCard onClick={showPopUp} />
+          <NewCard callback={showPopUp} />
           <Cards title="lorem" description="lorem" />
           <Cards title="lorem" description="lorem" />
           <Cards title="lorem" description="lorem" />
           <Cards title="lorem" description="lorem" />
         </CardsContainer>
+        {groups === true && <PopUpNewGroup />}
       </MyGroupsContainer>
     </>
   );
