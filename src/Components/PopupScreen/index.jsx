@@ -20,31 +20,13 @@ import groupCategories from "../../Utils/groupCatecories";
 import stringNormalizer from "../../Utils/stringNormalizer";
 import stringCutter from "../../Utils/stringCutter";
 import {
-  getSpecificGroup,
   subscribeToGroup,
   unsubscribeFromGroup,
 } from "../../Utils/endpoints/groups";
 import jwtDecode from "jwt-decode";
-import { useEffect, useState } from "react";
 
 const PopupScreen = ({ group, setCloseState }) => {
   const { push: goTo } = useHistory();
-
-  // const [group, updateGroups] = useState([]);
-
-  const getGroup = (id) => {
-    let group = [];
-
-    getSpecificGroup(id)
-      .then(({ data }) => {
-        group = data;
-      })
-      .catch((err) => console.log(err));
-
-    return group;
-  };
-
-  getGroup(group_id);
 
   const { id, name, description, users_on_group, goals, activities, category } =
     group;
@@ -62,16 +44,15 @@ const PopupScreen = ({ group, setCloseState }) => {
   const activitiesAmount = activities.length;
 
   const handleClose = () => setCloseState(false);
-  const handleMoreInfo = () => goTo("/group-page");
+  const handleMoreInfo = () => {
+    goTo("/group-page");
+  };
 
-  // const token = JSON.parse(localStorage.getItem("@quero_token"))
-  const token =
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM0NjkwNDA4LCJqdGkiOiI0NjNlNGQ1YzBmN2Y0YzQzOWQ4NTgxMmE0NDE3OTI5YSIsInVzZXJfaWQiOjQwfQ.5OIc_pRkftoZBoIqN0V6-dg-VNoveVXOz5F7pZHWlBw";
-
+  const token = JSON.parse(localStorage.getItem("@Quero_token"));
   const { user_id } = jwtDecode(token);
+  const alreadyOnGroup = users_on_group.some(({ id }) => id === user_id);
 
   const args = { group_id: id, token };
-  const alreadyOnGroup = users_on_group.some(({ id }) => id === user_id);
 
   const handleSubscribe = () => {
     if (alreadyOnGroup) {
@@ -82,7 +63,7 @@ const PopupScreen = ({ group, setCloseState }) => {
 
     subscribeToGroup(args)
       .then((resp) => {
-        updateGroups(getSpecificGroup(group_id));
+        // updateGroups(getSpecificGroup(group_id));
         console.log(resp);
       })
       .catch((err) => console.log(err));
