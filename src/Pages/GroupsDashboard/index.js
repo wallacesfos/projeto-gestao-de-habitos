@@ -3,12 +3,12 @@ import logo from "../../Utils/Assets/logo.png";
 import Cards from "../../Components/Cards";
 import NewCard from "../../Components/NewCard";
 import { NewButton } from "../../Components/Button";
+import { NewInput } from "../../Components/Input";
 import {
   Container,
   Header,
   PictureContainer,
   InputContainer,
-  StyledTextField,
   MyGroupsContainer,
   CardsContainer,
 } from "./styles";
@@ -29,9 +29,10 @@ export const GroupsDashboard = () => {
         <Container>
           <Nav dashboard />
           <InputContainer>
-            <StyledTextField
-              variant="outlined"
+            <NewInput
               placeholder="Digite o nome do seu grupo"
+              height="35"
+              width="550"
             />
             <NewButton variant="contained" innerText="Pesquisar" />
           </InputContainer>
