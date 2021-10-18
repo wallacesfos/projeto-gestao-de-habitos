@@ -30,7 +30,8 @@ export const StyledTextField = styled(TextField)`
     border-radius: 10px;
     min-width: 550px;
     max-height: 35px;
-    box-shadow: 5px 5px 15px 5px #000000;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
     margin-right: 1.5rem;
     padding: none;
     background-color: var(--background-white);
@@ -61,4 +62,21 @@ export const StyledButton = styled(Button)`
       background-color: var(--orange-main);
     }
   }
+`;
+
+export const MyGroupsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  > h1 {
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+`;
+
+export const CardsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  max-width: fit-content;
+  margin: 0 5rem;
 `;
