@@ -9,7 +9,7 @@ import {
   ContainerFooter,
   ContainerNav,
   Section,
-} from "./style.js";
+} from "../pagesStyle.js";
 export default function Home() {
   return (
     <>
