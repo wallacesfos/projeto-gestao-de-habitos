@@ -1,49 +1,70 @@
+import requisitionControler from "../../../Services/requisitionControler";
 import api from "../../api";
 
-export const unsubscribeFromGroup = ({ group_id, token }) => {
-  return api.delete(`groups/${group_id}/unsubscribe/`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-};
-
-export const getSubscriptions = (token) => {
-  return api.get(`groups/subscriptions/`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-};
-
 export const subscribeToGroup = ({ group_id, token }) => {
-  return api.post(
-    `/groups/${group_id}/subscribe/`,
-    {},
-    {
+  const resp = requisitionControler(
+    api.post(
+      `/groups/${group_id}/subscribe/`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+  );
+
+  return resp;
+};
+
+export const unsubscribeFromGroup = ({ group_id, token }) => {
+  const resp = requisitionControler(
+    api.delete(`groups/${group_id}/unsubscribe/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    }
+    })
   );
+
+  return resp;
+};
+
+export const getSubscriptions = (token) => {
+  const resp = requisitionControler(
+    api.get(`groups/subscriptions/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  );
+
+  return resp;
 };
 
 export const editGroup = ({ group_id, body, token }) => {
-  return api.patch(`groups/${group_id}/`, body, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const resp = requisitionControler(
+    api.patch(`groups/${group_id}/`, body, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  );
+
+  return resp;
 };
 
 export const createGroup = ({ body, token }) => {
-  return api.post(`groups/`, body, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const resp = requisitionControler(
+    api.post(`groups/`, body, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  );
+
+  return resp;
 };
 
 export const getGroups = (params = null) => {
@@ -64,7 +85,9 @@ export const getGroups = (params = null) => {
     url += `category=${category}&`;
   }
 
-  return api.get(url);
+  const resp = requisitionControler(api.get(url));
+
+  return resp;
 };
 
 export const getSpecificGroup = (group_id) => {
