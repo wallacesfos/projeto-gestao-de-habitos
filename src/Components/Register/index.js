@@ -1,8 +1,7 @@
 import {TextField, Button} from "@material-ui/core"
 import { useForm } from 'react-hook-form';
 import {yupResolver } from "@hookform/resolvers/yup"
-import { FlexContainer, Image, Form, Title, Login, Block, Cadastre} from "./style";
-import RegisterImage from '../../Utils/Assets/Signin.svg'
+import { FlexContainer, Form, Title, Login, Block, Cadastre} from "./style";
 import { Schema } from "../Yup";
 import { createAcount } from '../../Utils/endpoints/user'
 import { ToastContainer, toast } from 'react-toastify';
@@ -35,11 +34,6 @@ export default function Register(){
     return(
         <FlexContainer>
             <ToastContainer />
-
-            <div className="imagem-div">
-                <Image src={RegisterImage} alt="Imagem" />
-            </div>
-
             <Form className="formRegister" onSubmit={handleSubmit(handleForm)}>
                 <Title>Registre-se</Title>
                 <div className="divTexts">
