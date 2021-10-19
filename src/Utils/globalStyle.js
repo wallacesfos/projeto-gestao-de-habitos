@@ -51,5 +51,12 @@ export const GlobalStyle = createGlobalStyle`
         background-color: rgb(255, 131, 45) !important;
     }
 
+    .divTexts div{
+        border-radius: 150px;
+    }
+
+    .divTexts div div{
+        border-radius: 150px;
+    }
 
 `;
