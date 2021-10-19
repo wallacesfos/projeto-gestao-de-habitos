@@ -26,6 +26,10 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
 
+    body{
+        background-color: var(--background)
+    }
+
     .btn-primary{
         @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap');
         background-color: #FF6400 !important;
@@ -47,5 +51,12 @@ export const GlobalStyle = createGlobalStyle`
         background-color: rgb(255, 131, 45) !important;
     }
 
+    .divTexts div{
+        border-radius: 150px;
+    }
+
+    .divTexts div div{
+        border-radius: 150px;
+    }
 
 `;
