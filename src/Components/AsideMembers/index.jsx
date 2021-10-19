@@ -1,13 +1,18 @@
+import { AsideBar } from "./style";
+
 const AsideMembers = ({ memberList }) => {
   return (
-    <aside>
-      <h3> Membos </h3>
+    <AsideBar>
+      <div className="headerBox">
+        <img alt="Ícone membros" />
+        <h3> Membros </h3>
+      </div>
       <ul>
-        <li>Membro</li>
-        <li>Membro</li>
-        <li>Membro</li>
+        {memberList.map(({ username, id }) => (
+          <li key={id}> {username} </li>
+        ))}
       </ul>
-    </aside>
+    </AsideBar>
   );
 };
 
