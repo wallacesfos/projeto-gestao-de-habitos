@@ -2,7 +2,7 @@ import { Container } from "./styles.js";
 import logo from "../../../Utils/Assets/logo.png";
 import Nav from "../../../Components/Nav";
 import Search from "../../../Components/Search";
-export default function Habits() {
+export default function Header({ callback, param }) {
   return (
     <Container>
       <div className="col-left">
