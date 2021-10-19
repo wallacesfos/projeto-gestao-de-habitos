@@ -91,5 +91,7 @@ export const getGroups = (params = null) => {
 };
 
 export const getSpecificGroup = (group_id) => {
-  return api.get(`/groups/${group_id}/`);
+  const resp = requisitionControler(api.get(`/groups/${group_id}/`));
+
+  return resp;
 };
