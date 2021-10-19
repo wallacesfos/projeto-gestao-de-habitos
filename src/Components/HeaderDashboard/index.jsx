@@ -1,7 +1,7 @@
 import { Container } from "./styles.js";
-import logo from "../../../Utils/Assets/logo.png";
-import Nav from "../../../Components/Nav";
-import Search from "../../../Components/Search";
+import logo from "../../Utils/Assets/logo.png";
+import Nav from "../Nav";
+import Search from "../Search";
 export default function Header({ callback, param }) {
   return (
     <Container>
