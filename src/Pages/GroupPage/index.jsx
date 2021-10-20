@@ -1,28 +1,24 @@
 import AsideMembers from "../../Components/AsideMembers";
+import GoalsSection from "../../Components/GoalsSection";
+import Header from "../../Components/HeaderDashboard";
 import Nav from "../../Components/Nav";
+import { HeaderBox, Container } from "./styles";
 
 const GroupPage = ({ group }) => {
-  const { name, description, users_on_group: memberList } = group;
+  const { name, description, users_on_group: memberList, goals } = group;
 
   return (
-    <>
-      <Nav dashboard />
+    <Container>
+      <Header />
 
       <section>
-        <header>
+        <HeaderBox>
           <h2> {name} </h2>
           <p>{description}</p>
-        </header>
+        </HeaderBox>
         <main>
           <AsideMembers {...{ memberList }} />
-          <div>
-            <h3> Metas </h3>
-            <ul>
-              <li>meta</li>
-              <li>meta</li>
-              <li>meta</li>
-            </ul>
-          </div>
+          <GoalsSection {...{ goals }} />
           <div>
             <h3> Atividades </h3>
             <ul>
@@ -33,7 +29,7 @@ const GroupPage = ({ group }) => {
           </div>
         </main>
       </section>
-    </>
+    </Container>
   );
 };
 
