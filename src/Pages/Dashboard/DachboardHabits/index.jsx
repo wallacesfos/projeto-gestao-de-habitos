@@ -2,6 +2,7 @@ import { Container, Main, Section } from "./style.js";
 import Header from "../../../Components/HeaderDashboard";
 import ButtonAdd from "../../../Components/ButtonAdd/index.jsx";
 import Cards from "../../../Components/Cards/index.jsx";
+import Footer from "../../../Components/Footer";
 export default function Habits() {
   return (
     <>
@@ -26,6 +27,7 @@ export default function Habits() {
           </Section>
         </Main>
       </Container>
+      <Footer />
     </>
   );
 }
