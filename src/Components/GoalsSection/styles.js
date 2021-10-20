@@ -56,4 +56,16 @@ export const Item = styled.li`
       font-size: 14px;
     }
   }
+
+  cursor: pointer;
+  transition: transform 0.1s linear;
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  @media (min-width: 800px) {
+    &:active {
+      transform: scale(0.99);
+    }
+  }
 `;
