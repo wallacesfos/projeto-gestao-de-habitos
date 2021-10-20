@@ -57,6 +57,12 @@ export const Item = styled.li`
     }
   }
 
+  .empty {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-placeHolder);
+  }
+
   cursor: pointer;
   transition: transform 0.1s linear;
   &:hover {
