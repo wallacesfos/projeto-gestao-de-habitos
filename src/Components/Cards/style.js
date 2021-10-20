@@ -7,7 +7,6 @@ export const ContainerCard = styled.div`
   height: 215px;
   box-sizing: border-box;
   padding: 15px;
-  margin-right: 2rem;
   margin-bottom: 2rem;
   -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);

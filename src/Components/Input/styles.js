@@ -8,9 +8,12 @@ export const StyledTextField = styled(TextField)`
     max-height: ${(props) => `${props.height}px`};
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
-    margin-right: 1.5rem;
+    margin-bottom: 1rem;
     padding: none;
     background-color: var(--background-white);
+    @media (min-width: 600px) {
+      margin-bottom: 0px;
+    }
     :focus {
       border-color: orange;
     }
