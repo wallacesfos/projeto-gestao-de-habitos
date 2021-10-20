@@ -6,11 +6,8 @@ import { Schema } from "../Yup";
 import { createAcount } from '../../Utils/endpoints/user'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useHistory } from "react-router-dom";
 
 export default function Register(){
-
-    const history = useHistory()
  
 
     const {register, handleSubmit, formState: { errors } } = useForm({resolver: yupResolver(Schema)}) 
@@ -32,7 +29,6 @@ export default function Register(){
         
         if(resp.status === 201){
             toast.success('Conta criada com sucesso!')
-            history.push('/dashboard')
         }
     }
 
