@@ -1,6 +1,7 @@
 import Nav from "../../Components/Nav";
 import logo from "../../Utils/Assets/logo.png";
 import signin from "../../Utils/Assets/Signin.svg";
+import Singin from "../../Components/Signin";
 import {
   Container,
   ContainerApp,
@@ -24,7 +25,9 @@ export default function Login() {
           <div>
             <img src={signin} alt="Lendo um resumo da Quero!" />
           </div>
-          <div>Formulario Login</div>
+          <div>
+            <Singin />
+          </div>
         </Section>
         <ContainerApp>
           <div>Baixe Nosso App:</div>
