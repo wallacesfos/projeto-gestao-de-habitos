@@ -6,7 +6,7 @@ export const ContainerNav = styled.ul`
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
+  margin: 10px 0px;
   justify-content: center;
   li {
     flex-basis: 50%;
