@@ -1,10 +1,10 @@
 import { GlobalStyle } from "./Utils/globalStyle.js";
-import Home from "./Pages/Home";
+import Subscribe from "./Pages/Subscribe/index.jsx";
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Home />
+      <Subscribe />
     </div>
   );
 }
