@@ -14,16 +14,7 @@ export default function Habits() {
             <div className="Section-ButtonAdd">
               <ButtonAdd />
             </div>
-            <div className="Section-Cards">
-              <Cards />
-              <Cards />
-              <Cards />
-              <Cards />
-              <Cards />
-              <Cards />
-              <Cards />
-              <Cards />
-            </div>
+            <div className="Section-Cards"></div>
           </Section>
         </Main>
       </Container>
