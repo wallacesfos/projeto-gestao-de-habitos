@@ -1,25 +1,17 @@
 import styled from "styled-components";
 
 export const AsideBar = styled.section`
-  width: 100%;
-
-  padding: 4px;
-  border-radius: 10px;
-
-  background-color: white;
-
-  > div.headerBox {
-    background-color: #e09cd1;
-    border-radius: 10px 10px 0 0;
-
-    height: 70px;
-
+  ul {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-
-    > h3 {
-      margin-left: 5px;
+    > hr {
+      width: 40%;
     }
   }
+`;
+
+export const Item = styled.li`
+  text-align: center;
+  margin: 10px 0;
 `;

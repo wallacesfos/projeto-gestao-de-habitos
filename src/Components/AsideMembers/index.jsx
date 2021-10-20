@@ -1,17 +1,19 @@
-import { AsideBar } from "./style";
+import GroupCardSection from "../GroupSection";
+import { AsideBar, Item } from "./style";
 
 const AsideMembers = ({ memberList }) => {
   return (
     <AsideBar>
-      <div className="headerBox">
-        <img alt="Ícone membros" />
-        <h3> Membros </h3>
-      </div>
-      <ul>
-        {memberList.map(({ username, id }) => (
-          <li key={id}> {username} </li>
-        ))}
-      </ul>
+      <GroupCardSection variant="members">
+        <ul>
+          {memberList.map(({ username, id }) => (
+            <>
+              <Item key={id}> {username} </Item>
+              <hr />
+            </>
+          ))}
+        </ul>
+      </GroupCardSection>
     </AsideBar>
   );
 };
