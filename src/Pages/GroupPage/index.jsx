@@ -5,7 +5,7 @@ import Nav from "../../Components/Nav";
 import { useGroup } from "../../Providers/GroupProvider";
 import { HeaderBox, Container } from "./styles";
 
-const GroupPage = ({ group }) => {
+const GroupPage = () => {
   const { currentGroup } = useGroup();
 
   const { name, description, users_on_group: memberList, goals } = currentGroup;
