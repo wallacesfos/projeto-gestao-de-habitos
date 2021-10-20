@@ -8,18 +8,15 @@ import {
   PopupCard,
   CardDescription,
   Button,
-  DeleteButton,
-  ConfirmBox,
 } from "./styles";
 import { deleteGoal, updateGoal } from "../../Utils/endpoints/goals";
-import { useState } from "react";
 import useGoal from "../../Providers/GoalProvider";
 import { useGroup } from "../../Providers/GroupProvider";
+import ConfirmEventButton from "../ConfirmEventButton";
 
 const GoalPopupCard = ({ deleteToast }) => {
   const { currentGoal, updateCurrentGoal, resetCurrentGoal } = useGoal();
   const { updateCurrentGroup } = useGroup();
-  const [deleteMode, setDeleteMode] = useState(false);
 
   const { id, title, difficulty, achieved, how_much_achieved } = currentGoal;
 
@@ -73,25 +70,9 @@ const GoalPopupCard = ({ deleteToast }) => {
 
         <CardDescription>{title}</CardDescription>
 
-        {!deleteMode && (
-          <DeleteButton
-            onClick={() => setTimeout(() => setDeleteMode(true), 200)}
-          >
-            {" "}
-            Deletar{" "}
-          </DeleteButton>
-        )}
-        {deleteMode && (
-          <ConfirmBox>
-            <DeleteButton onClick={handleDelete}> Confirmar </DeleteButton>
-            <DeleteButton
-              onClick={() => setTimeout(() => setDeleteMode(false), 200)}
-            >
-              {" "}
-              Voltar{" "}
-            </DeleteButton>
-          </ConfirmBox>
-        )}
+        <ConfirmEventButton
+          {...{ handleClick: handleDelete, buttonText: "Excluir" }}
+        />
 
         <Button disabled={achieved} onClick={handleCheckin}>
           {buttonText}

@@ -177,17 +177,3 @@ export const Button = styled.button`
     }
   }
 `;
-
-export const DeleteButton = styled(Button)`
-  background-color: var(--danger);
-`;
-
-export const ConfirmBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-
-  > button {
-    width: 40%;
-  }
-`;
