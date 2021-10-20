@@ -2,7 +2,7 @@ import { Container } from "./styles.js";
 import logo from "../../Utils/Assets/logo.png";
 import Nav from "../Nav";
 import Search from "../Search";
-export default function Header({ callback, param }) {
+export default function Header({ callback, param, placeHolder }) {
   return (
     <Container>
       <div className="col-left">
@@ -10,7 +10,7 @@ export default function Header({ callback, param }) {
       </div>
       <div className="col-right">
         <Nav dashboard />
-        <Search />
+        <Search placeHolder={placeHolder} />
       </div>
     </Container>
   );
