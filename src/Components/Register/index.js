@@ -13,22 +13,23 @@ export default function Register(){
     const {register, handleSubmit, formState: { errors } } = useForm({resolver: yupResolver(Schema)}) 
 
 
-    function handleForm(data){
+    const handleForm = async (data) => {
         const formData = {
             "username": data.name,
             "email": data.email,
             "password": data.password,
         }
 
-        createAcount(formData)
-        .then(() =>{
-            toast.success('Usuário criado com sucesso!')
-        })
-        .catch(res =>{
-            if(res.response.status === 400){
-                toast.error('Usuário já existe')
-            }
-        })
+        const resp = await createAcount(formData);
+        console.log(resp)
+
+        if(resp.status === 400){
+            toast.error('Usuário já existe')
+        }
+        
+        if(resp.status === 201){
+            toast.success('Conta criada com sucesso!')
+        }
     }
 
     return(
