@@ -35,9 +35,12 @@ export const Section = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
-  -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+
+  ${(props) =>
+    !props.home
+      ? "background-color: #ffffff;-webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);"
+      : ""}
+
   margin: 30px 0px;
   .Section-col {
     flex-basis: 100%;

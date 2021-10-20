@@ -1,6 +1,7 @@
 import logo from "../../Utils/Assets/logo.png";
 import svg1 from "../../Utils/Assets/svg1.svg";
 import svg2 from "../../Utils/Assets/svg2.svg";
+import Nav from "../../Components/Nav";
 import {
   Container,
   ContainerApp,
@@ -17,27 +18,29 @@ export default function Home() {
           <div>
             <img src={logo} alt="Quero!" />
           </div>
-          <div>nav</div>
-        </ContainerNav>
-        <Section>
           <div>
+            <Nav />
+          </div>
+        </ContainerNav>
+        <Section home>
+          <div className="Section-col">
             <img src={svg1} alt="Lendo um resumo da Quero!" />
           </div>
-          <div>
+          <div className="Section-col">
             <div className="card">
               A Quero! é uma plataforma de organização e aprendizado para novos
               habitos ou aprimoramendo deles.
             </div>
           </div>
         </Section>
-        <Section className="column-reverse">
-          <div>
+        <Section home className="column-reverse">
+          <div className="Section-col">
             <div className="card">
               Na Quero! Você anota seus habitos com praticidade e participa de
               grupos desses habitos ou de conteúdos relacionados.
             </div>
           </div>
-          <div>
+          <div className="Section-col">
             <img src={svg2} alt="Lendo um resumo da Quero!" />
           </div>
         </Section>
@@ -53,7 +56,9 @@ export default function Home() {
         <div className="footer-col">
           <img src={logo} alt="Quero! footer" />
         </div>
-        <div className="footer-col">nav</div>
+        <div className="footer-col">
+          <Nav footer />
+        </div>
       </ContainerFooter>
     </>
   );
