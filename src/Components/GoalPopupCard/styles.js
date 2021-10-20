@@ -72,7 +72,6 @@ export const CardHeader = styled.h2`
   height: 82px;
   width: 100%;
   background-color: #f2cfa5aa;
-  padding: 0 40px 0 5px;
   text-align: center;
   border-radius: 10px 10px 0 0;
   font-weight: bold;
@@ -166,5 +165,11 @@ export const Button = styled.button`
   ${buttonEffect}
   &:hover {
     background-color: rgb(255, 131, 45);
+  }
+
+  &:disabled {
+    background-color: var(--color-placeHolder);
+    box-shadow: unset;
+    cursor: default;
   }
 `;
