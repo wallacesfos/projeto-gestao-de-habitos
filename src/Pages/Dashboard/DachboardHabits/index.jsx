@@ -3,7 +3,12 @@ import Header from "../../../Components/HeaderDashboard";
 import ButtonAdd from "../../../Components/ButtonAdd/index.jsx";
 import Cards from "../../../Components/Cards/index.jsx";
 import Footer from "../../../Components/Footer";
+import { useEffect } from "react";
+import FormAddHabits from "../../../Components/FormAddHabits/index.jsx";
 export default function Habits() {
+  const LoadHabits = () => {};
+  useEffect(() => {}, []);
+
   return (
     <>
       <Container>
@@ -13,6 +18,9 @@ export default function Habits() {
             <h1>Hábitos</h1>
             <div className="Section-ButtonAdd">
               <ButtonAdd />
+            </div>
+            <div>
+              <FormAddHabits />
             </div>
             <div className="Section-Cards"></div>
           </Section>
