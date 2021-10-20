@@ -18,8 +18,14 @@ export const SectionBox = styled.div`
     justify-content: center;
     align-items: center;
 
+    > img {
+      height: 50px;
+      width: 50px;
+    }
+
     > h3 {
       margin-left: 5px;
+      font-size: 28px;
     }
   }
 `;
