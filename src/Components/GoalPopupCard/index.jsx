@@ -8,29 +8,18 @@ import {
   PopupCard,
   CardDescription,
   Button,
+  DeleteButton,
+  ConfirmBox,
 } from "./styles";
-import {
-  deleteGoal,
-  getSpecificGoal,
-  updateGoal,
-} from "../../Utils/endpoints/goals";
-import { useEffect, useState } from "react";
+import { deleteGoal, updateGoal } from "../../Utils/endpoints/goals";
+import { useState } from "react";
 import useGoal from "../../Providers/GoalProvider";
 import { useGroup } from "../../Providers/GroupProvider";
 
-const GoalPopupCard = () => {
+const GoalPopupCard = ({ deleteToast }) => {
   const { currentGoal, updateCurrentGoal, resetCurrentGoal } = useGoal();
   const { updateCurrentGroup } = useGroup();
-
-  useEffect(() => {
-    // updateCurrentGoal(goal_id);
-    // const getGoal = async () => {
-    //   let goal = {};
-    //   await getSpecificGoal(goal_id).then(({ data }) => setGoal(data));
-    //   return goal;
-    // };
-    // getGoal();
-  }, []);
+  const [deleteMode, setDeleteMode] = useState(false);
 
   const { id, title, difficulty, achieved, how_much_achieved } = currentGoal;
 
@@ -54,13 +43,13 @@ const GoalPopupCard = () => {
     const resp = await updateGoal({ goal_id: id, body, token });
 
     if (resp.status === 200) {
-      toast.success("Meta atualizada!");
+      deleteToast();
     }
 
     updateCurrentGroup();
     updateCurrentGoal();
   };
-  const hadleDelete = async () => {
+  const handleDelete = async () => {
     const resp = await deleteGoal({ goal_id: id, token });
 
     if (resp.status === 204) {
@@ -84,7 +73,25 @@ const GoalPopupCard = () => {
 
         <CardDescription>{title}</CardDescription>
 
-        <button onClick={hadleDelete}> deletar </button>
+        {!deleteMode && (
+          <DeleteButton
+            onClick={() => setTimeout(() => setDeleteMode(true), 200)}
+          >
+            {" "}
+            Deletar{" "}
+          </DeleteButton>
+        )}
+        {deleteMode && (
+          <ConfirmBox>
+            <DeleteButton onClick={handleDelete}> Confirmar </DeleteButton>
+            <DeleteButton
+              onClick={() => setTimeout(() => setDeleteMode(false), 200)}
+            >
+              {" "}
+              Voltar{" "}
+            </DeleteButton>
+          </ConfirmBox>
+        )}
 
         <Button disabled={achieved} onClick={handleCheckin}>
           {buttonText}

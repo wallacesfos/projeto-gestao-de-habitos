@@ -153,7 +153,7 @@ export const StatItem = styled.div`
 `;
 
 export const Button = styled.button`
-  background-color: #ff6400;
+  background-color: var(--success);
   border-radius: 27px;
   width: 274px;
   height: 46px;
@@ -163,13 +163,31 @@ export const Button = styled.button`
   font-size: 20px;
   font-weight: bold;
   ${buttonEffect}
-  &:hover {
-    background-color: rgb(255, 131, 45);
-  }
+  animation: ${comeAnimation} 0.2s ease-out forwards;
 
-  &:disabled {
-    background-color: var(--color-placeHolder);
-    box-shadow: unset;
-    cursor: default;
+  @media (min-width: 1024px) {
+    &:hover {
+      background-color: rgb(255, 131, 45);
+    }
+
+    &:disabled {
+      background-color: var(--color-placeHolder);
+      box-shadow: unset;
+      cursor: default;
+    }
+  }
+`;
+
+export const DeleteButton = styled(Button)`
+  background-color: var(--danger);
+`;
+
+export const ConfirmBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  > button {
+    width: 40%;
   }
 `;
