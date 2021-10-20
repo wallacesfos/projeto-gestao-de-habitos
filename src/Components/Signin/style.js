@@ -1,44 +1,56 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-
-export const FlexContainer = styled.div`
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-`
+// export const FlexContainer = styled.div`
+//     display: flex;
+//     width: 100vw;
+//     height: 100vh;
+//     justify-content: center;
+//     align-items: center;
+// `
 
 export const Image = styled.img`
-    height: 500px;
-`
+  height: 500px;
+`;
 
 export const Form = styled.form`
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 300px;
-`
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 400px;
+  .divTexts {
+    div {
+      width: 100vw;
+      min-width: 100px;
+      max-width: 300px;
+    }
+  }
+`;
 
 export const Title = styled.h2`
-    font-family: Arial;
-    color: #37474F;
-`
+  font-family: Arial;
+  color: #37474f;
+`;
 
 export const Login = styled.span`
-    color: #FF6400;
-`
+  color: #ff6400;
+`;
 
 export const Block = styled.div`
-    width: 80%;
-`
+  width: 100%;
+  button {
+    width: 100vw;
+    min-width: 100px;
+    max-width: 300px;
+    border-radius: 150px;
+  }
+`;
 
 export const Cadastre = styled.p`
-    font-family: arial;
-    font-size: 14px;
-`
+  font-family: arial;
+  font-size: 14px;
+`;

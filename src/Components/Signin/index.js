@@ -1,9 +1,8 @@
 import { TextField, Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FlexContainer, Form, Title, Login, Block, Cadastre } from "./style";
+import { Form, Title, Login, Block, Cadastre } from "./style";
 import { login } from "../../Utils/endpoints/user";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LoginSchema } from "../Yup";
 
@@ -32,8 +31,7 @@ export default function SignIn() {
   };
 
   return (
-    <FlexContainer>
-      <ToastContainer />
+    <>
       <Form className="formRegister" onSubmit={handleSubmit(handleForm)}>
         <Title>Usuário</Title>
         <div className="divTexts">
@@ -79,6 +77,6 @@ export default function SignIn() {
           Não tem cadastro? <Login>Cadastre-se</Login>
         </Cadastre>
       </Form>
-    </FlexContainer>
+    </>
   );
 }
