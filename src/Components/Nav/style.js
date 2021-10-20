@@ -6,6 +6,8 @@ export const ContainerNav = styled.ul`
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+  margin: 10px 0px;
+  justify-content: center;
   li {
     flex-basis: 50%;
     font-family: "Red Hat Text";
@@ -16,7 +18,7 @@ export const ContainerNav = styled.ul`
   }
   @media (min-width: 800px) {
     li {
-      flex-basis: 20%;
+      flex-basis: 28%;
       padding: 0px;
     }
   }

@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     .btn-primary{
         @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap');
         background-color: #FF6400 !important;
-        border-radius: 15px;
+        border-radius: 150px;
         width: 200px;
         height: 33px;
         border: 1px solid transparent;
