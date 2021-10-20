@@ -1,15 +1,20 @@
+import { useState } from "react";
+import GoalPopupCard from "../GoalPopupCard";
 import GroupCardSection from "../GroupSection";
 import { AsideBar, Item } from "./styles";
 
 const GoalsSection = ({ goals }) => {
+  const [currentId, setCurrentId] = useState(null);
+
   return (
     <AsideBar>
       <GroupCardSection variant="goals">
         <ul>
-          {goals.map(({ title, difficulty, how_much_achieved }, index) => (
+          {goals.map(({ title, difficulty, how_much_achieved, id }) => (
             <>
               <Item
-                key={index}
+                onClick={() => setCurrentId(id)}
+                key={id}
                 {...{
                   how_much_achieved,
                 }}
@@ -18,6 +23,15 @@ const GoalsSection = ({ goals }) => {
                 <p>{difficulty}</p>
                 <div className="progressBar"></div>
               </Item>
+              {currentId === id && (
+                <GoalPopupCard
+                  {...{
+                    goal_id: id,
+                    setCloseState: setCurrentId,
+                    closeValue: null,
+                  }}
+                />
+              )}
             </>
           ))}
         </ul>
