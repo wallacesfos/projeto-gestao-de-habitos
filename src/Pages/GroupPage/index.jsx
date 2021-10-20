@@ -1,15 +1,25 @@
+import jwtDecode from "jwt-decode";
+import { toast, ToastContainer } from "react-toastify";
 import ActivitiesSection from "../../Components/ActivitiesSection";
 import AsideMembers from "../../Components/AsideMembers";
+import ConfirmEventButton from "../../Components/ConfirmEventButton";
+import Footer from "../../Components/Footer";
 import GoalsSection from "../../Components/GoalsSection";
 import Header from "../../Components/HeaderDashboard";
-import Nav from "../../Components/Nav";
 import { useGroup } from "../../Providers/GroupProvider";
+import {
+  subscribeToGroup,
+  unsubscribeFromGroup,
+} from "../../Utils/endpoints/groups";
 import { HeaderBox, Container } from "./styles";
 
 const GroupPage = () => {
   const { currentGroup } = useGroup();
+  const token = JSON.parse(localStorage.getItem("@Quero_token"));
+  const { user_id } = jwtDecode(token);
 
   const {
+    id,
     name,
     description,
     users_on_group: memberList,
@@ -17,14 +27,45 @@ const GroupPage = () => {
     activities,
   } = currentGroup;
 
+  const handleUnsubscribe = async () => {
+    const resp = await unsubscribeFromGroup({ group_id: id, token });
+
+    if (resp.status === 204) {
+      toast.success("Você saiu do grupo");
+    }
+  };
+
+  const handleSubscribe = async () => {
+    const resp = await subscribeToGroup({ group_id: id, token });
+
+    if (resp.status === 200) {
+      toast.success("Você se juntou ao grupo");
+    }
+  };
+
+  const userIsOnGroup = currentGroup.users_on_group.some(
+    ({ id }) => id === user_id
+  );
+
+  const props = {
+    handleClick: userIsOnGroup ? handleUnsubscribe : handleSubscribe,
+    buttonText: userIsOnGroup ? "Sair do grupo" : "Entrar no Grupo",
+  };
+
   return (
     <Container>
+      <ToastContainer />
       <Header />
 
       <section>
         <HeaderBox>
           <h2> {name} </h2>
           <p>{description}</p>
+          <ConfirmEventButton
+            desableSwitch={!userIsOnGroup}
+            className="unsubscribeButton"
+            {...props}
+          />
         </HeaderBox>
         <main>
           <AsideMembers {...{ memberList }} />
@@ -32,6 +73,7 @@ const GroupPage = () => {
           <ActivitiesSection {...{ activities }} />
         </main>
       </section>
+      <Footer />
     </Container>
   );
 };
