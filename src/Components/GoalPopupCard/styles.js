@@ -40,10 +40,12 @@ export const BackdropContainer = styled.div`
   ${defaultFlex};
   height: 100vh;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
   background-color: rgb(0 0 0 / 0.5);
   backdrop-filter: blur(1px);
+  z-index: 1;
 `;
 
 export const PopupCard = styled.div`

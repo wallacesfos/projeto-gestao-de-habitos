@@ -30,8 +30,6 @@ const GoalPopupCard = ({ goal_id, setCloseState, closeValue }) => {
 
   const { title, difficulty, achieved, how_much_achieved, group } = goal;
 
-  const ajustedTitle = title;
-
   const handleClose = () => setCloseState(closeValue);
 
   const token = JSON.parse(localStorage.getItem("@Quero_token"));
@@ -67,7 +65,7 @@ const GoalPopupCard = ({ goal_id, setCloseState, closeValue }) => {
           <CgClose onClick={handleClose} />
         </CardHeader>
 
-        <CardDescription>{ajustedTitle}</CardDescription>
+        <CardDescription>{title}</CardDescription>
 
         <button onClick={hadleDelete}> deletar </button>
 

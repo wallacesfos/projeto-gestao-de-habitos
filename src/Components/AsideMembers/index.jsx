@@ -7,10 +7,10 @@ const AsideMembers = ({ memberList }) => {
       <GroupCardSection variant="members">
         <ul>
           {memberList.map(({ username, id }) => (
-            <>
-              <Item key={id}> {username} </Item>
+            <div key={id}>
+              <Item> {username}</Item>
               <hr />
-            </>
+            </div>
           ))}
         </ul>
       </GroupCardSection>

@@ -11,10 +11,9 @@ const GoalsSection = ({ goals }) => {
       <GroupCardSection variant="goals">
         <ul>
           {goals.map(({ title, difficulty, how_much_achieved, id }) => (
-            <>
+            <div key={id}>
               <Item
                 onClick={() => setCurrentId(id)}
-                key={id}
                 {...{
                   how_much_achieved,
                 }}
@@ -32,7 +31,7 @@ const GoalsSection = ({ goals }) => {
                   }}
                 />
               )}
-            </>
+            </div>
           ))}
         </ul>
       </GroupCardSection>

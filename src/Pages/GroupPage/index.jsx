@@ -2,10 +2,13 @@ import AsideMembers from "../../Components/AsideMembers";
 import GoalsSection from "../../Components/GoalsSection";
 import Header from "../../Components/HeaderDashboard";
 import Nav from "../../Components/Nav";
+import { useGroup } from "../../Providers/GroupProvider";
 import { HeaderBox, Container } from "./styles";
 
 const GroupPage = ({ group }) => {
-  const { name, description, users_on_group: memberList, goals } = group;
+  const { currentGroup } = useGroup();
+
+  const { name, description, users_on_group: memberList, goals } = currentGroup;
 
   return (
     <Container>
@@ -19,14 +22,14 @@ const GroupPage = ({ group }) => {
         <main>
           <AsideMembers {...{ memberList }} />
           <GoalsSection {...{ goals }} />
-          <div>
+          {/* <div>
             <h3> Atividades </h3>
             <ul>
               <li>atividade</li>
               <li>atividade</li>
               <li>atividade</li>
             </ul>
-          </div>
+          </div> */}
         </main>
       </section>
     </Container>

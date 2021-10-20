@@ -21,7 +21,7 @@ export const AsideBar = styled.section`
 
 export const Item = styled.li`
   text-align: center;
-  margin: 10px 0;
+  margin: 10px auto;
   overflow: hidden;
 
   width: 95%;
