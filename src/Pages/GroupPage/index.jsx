@@ -14,7 +14,7 @@ import {
 import { HeaderBox, Container } from "./styles";
 
 const GroupPage = () => {
-  const { currentGroup } = useGroup();
+  const { currentGroup, updateCurrentGroup } = useGroup();
   const token = JSON.parse(localStorage.getItem("@Quero_token"));
   const { user_id } = jwtDecode(token);
 
@@ -33,6 +33,8 @@ const GroupPage = () => {
     if (resp.status === 204) {
       toast.success("Você saiu do grupo");
     }
+
+    updateCurrentGroup();
   };
 
   const handleSubscribe = async () => {
@@ -41,6 +43,8 @@ const GroupPage = () => {
     if (resp.status === 200) {
       toast.success("Você se juntou ao grupo");
     }
+
+    updateCurrentGroup();
   };
 
   const userIsOnGroup = currentGroup.users_on_group.some(
