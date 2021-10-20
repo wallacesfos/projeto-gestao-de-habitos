@@ -27,6 +27,8 @@ const comeAnimation = keyframes`
 
 export const DeleteButton = styled.button`
   background-color: var(--danger);
+  background-color: ${({ cancelButton }) =>
+    cancelButton ? "var(--color-cinzaEscuro)" : "var(--danger)"};
   border-radius: 27px;
   width: 274px;
   height: 46px;
