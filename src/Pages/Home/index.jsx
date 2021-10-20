@@ -1,6 +1,7 @@
 import logo from "../../Utils/Assets/logo.png";
 import svg1 from "../../Utils/Assets/svg1.svg";
 import svg2 from "../../Utils/Assets/svg2.svg";
+import Nav from "../../Components/Nav";
 import {
   Container,
   ContainerApp,
@@ -17,7 +18,9 @@ export default function Home() {
           <div>
             <img src={logo} alt="Quero!" />
           </div>
-          <div>nav</div>
+          <div>
+            <Nav />
+          </div>
         </ContainerNav>
         <Section home>
           <div className="Section-col">
@@ -53,7 +56,9 @@ export default function Home() {
         <div className="footer-col">
           <img src={logo} alt="Quero! footer" />
         </div>
-        <div className="footer-col">nav</div>
+        <div className="footer-col">
+          <Nav footer />
+        </div>
       </ContainerFooter>
     </>
   );
