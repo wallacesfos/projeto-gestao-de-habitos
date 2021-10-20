@@ -11,8 +11,8 @@ export const StyledTextField = styled(TextField)`
     margin-bottom: 1rem;
     padding: none;
     background-color: var(--background-white);
-    @media (min-width: 600px) {
-      margin-bottom: 0px;
+    @media (min-width: 1024px) {
+      margin: 0 0.5rem;
     }
     :focus {
       border-color: orange;

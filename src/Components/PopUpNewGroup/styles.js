@@ -14,8 +14,14 @@ export const Container = styled.div`
   > h3 {
     margin-right: 1.5rem;
   }
-  @media (min-width: 1400px) {
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    justify-content: space-between;
     flex-direction: row;
-    padding: 1.5rem;
+    padding: 0 1.5rem;
+  }
+  @media (min-width: 2560px) {
+    flex-direction: row;
+    padding: 0 1.5rem;
+    justify-content: center;
   }
 `;
