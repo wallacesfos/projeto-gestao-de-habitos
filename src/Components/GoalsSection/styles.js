@@ -15,7 +15,6 @@ export const AsideBar = styled.section`
   ul {
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 `;
 
