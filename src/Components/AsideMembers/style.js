@@ -5,8 +5,13 @@ export const AsideBar = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    > hr {
-      width: 40%;
+
+    > div {
+      width: 100%;
+
+      > hr {
+        width: 40%;
+      }
     }
   }
 `;
