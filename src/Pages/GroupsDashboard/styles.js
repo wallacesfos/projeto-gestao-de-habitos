@@ -25,8 +25,6 @@ export const PictureContainer = styled.div`
     max-width: 100%;
     height: auto;
   }
-  @media (min-width: 600px) {
-  }
 `;
 
 export const InputContainer = styled.div`
@@ -49,5 +47,11 @@ export const CardsContainer = styled.div`
   flex-wrap: wrap;
   max-width: fit-content;
   justify-content: flex-start;
-  margin: 0 5rem;
+  margin: 0 1rem;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
 `;

@@ -13,7 +13,12 @@ export const GroupsDashboard = () => {
   };
   return (
     <Container>
-      <Header />
+      <Header
+        showLogo
+        showNav
+        placeHolder="Digite o nome do seu grupo"
+        showLeftCol
+      />
       <h1>Meus Grupos</h1>
       <CardsContainer>
         <Cards title="lorem" description="lorem" />
@@ -28,8 +33,8 @@ export const GroupsDashboard = () => {
         <NewCard callback={showPopUp} />
       </CardsContainer>
       {groups === true && <PopUpNewGroup />}
-      <Header />
-      <h1>Todos os Grupos</h1>
+      <h1 style={{ marginBottom: 0 }}>Todos os Grupos</h1>
+      <Header placeHolder="Digite o nome do grupo que deseja" />
       <CardsContainer>
         <Cards title="lorem" description="lorem" />
         <Cards title="lorem" description="lorem" />
