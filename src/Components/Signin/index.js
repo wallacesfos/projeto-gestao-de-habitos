@@ -33,6 +33,7 @@ export default function SignIn() {
   return (
     <>
       <Form className="formRegister" onSubmit={handleSubmit(handleForm)}>
+        <ToastContainer />
         <Title>Usuário</Title>
         <div className="divTexts">
           <TextField
