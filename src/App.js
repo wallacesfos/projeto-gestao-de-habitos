@@ -1,11 +1,12 @@
-import Header from "./Components/HeaderDashboard/index.jsx";
+import Register from "./Components/Register";
+
 import { GlobalStyle } from "./Utils/globalStyle.js";
 
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Header placeHolder="Digite o nome do habito..." />
+      <Register />
     </div>
   );
 }
