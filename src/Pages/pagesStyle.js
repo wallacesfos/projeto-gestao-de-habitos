@@ -39,7 +39,7 @@ export const Section = styled.div`
   -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
   margin: 30px 0px;
-  div {
+  .Section-col {
     flex-basis: 100%;
     display: flex;
     justify-content: center;

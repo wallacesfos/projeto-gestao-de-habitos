@@ -22,10 +22,10 @@ export default function Login() {
           </div>
         </ContainerNav>
         <Section>
-          <div>
+          <div className="Section-col">
             <img src={signin} alt="Lendo um resumo da Quero!" />
           </div>
-          <div>
+          <div className="Section-col">
             <Singin />
           </div>
         </Section>
