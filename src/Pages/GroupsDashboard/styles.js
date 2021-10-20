@@ -7,6 +7,13 @@ export const Header = styled.div`
   justify-content: center;
 `;
 
+export const Footer = styled.div`
+  display: flex;
+  min-width: 100vw;
+  padding: 5rem;
+  justify-content: space-around;
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;

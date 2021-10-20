@@ -12,6 +12,7 @@ import {
   InputContainer,
   MyGroupsContainer,
   CardsContainer,
+  Footer,
 } from "./styles";
 import { useState } from "react";
 
@@ -42,16 +43,16 @@ export const GroupsDashboard = () => {
       <MyGroupsContainer>
         <h1>Meus Grupos</h1>
         <CardsContainer>
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
+          <Cards title="lorem" description="lorem" />
           <NewCard callback={showPopUp} />
-          <Cards title="lorem" description="lorem" />
-          <Cards title="lorem" description="lorem" />
-          <Cards title="lorem" description="lorem" />
-          <Cards title="lorem" description="lorem" />
-          <Cards title="lorem" description="lorem" />
-          <Cards title="lorem" description="lorem" />
-          <Cards title="lorem" description="lorem" />
-          <Cards title="lorem" description="lorem" />
-          <Cards title="lorem" description="lorem" />
         </CardsContainer>
         {groups === true && <PopUpNewGroup />}
       </MyGroupsContainer>
@@ -78,6 +79,12 @@ export const GroupsDashboard = () => {
           <Cards title="lorem" description="lorem" />
           <Cards title="lorem" description="lorem" />
         </CardsContainer>
+        <Footer>
+          <PictureContainer>
+            <img src={logo} alt="logo" />
+          </PictureContainer>
+          <Nav dashboard />
+        </Footer>
       </MyGroupsContainer>
     </>
   );
