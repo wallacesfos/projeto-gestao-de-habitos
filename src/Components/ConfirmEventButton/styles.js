@@ -25,7 +25,7 @@ const comeAnimation = keyframes`
     }
 `;
 
-export const DeleteButton = styled.button`
+export const Button = styled.button`
   background-color: var(--danger);
   background-color: ${({ cancelButton }) =>
     cancelButton ? "var(--color-cinzaEscuro)" : "var(--danger)"};

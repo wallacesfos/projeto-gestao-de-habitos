@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ConfirmBox, DeleteButton } from "./styles";
+import { ConfirmBox, Button } from "./styles";
 
 const ConfirmEventButton = ({
   handleClick,
@@ -10,31 +10,31 @@ const ConfirmEventButton = ({
   const [activeMode, setActiveMode] = useState(false);
 
   const unswitableMode = (
-    <DeleteButton {...{ className }} onClick={handleClick}>
+    <Button {...{ className }} onClick={handleClick}>
       {buttonText}
-    </DeleteButton>
+    </Button>
   );
 
   const switableMode = (
     <>
       {!activeMode && (
-        <DeleteButton
+        <Button
           {...{ className }}
           onClick={() => setTimeout(() => setActiveMode(true), 200)}
         >
           {buttonText}
-        </DeleteButton>
+        </Button>
       )}
       {activeMode && (
         <ConfirmBox>
-          <DeleteButton onClick={handleClick}> Confirmar </DeleteButton>
-          <DeleteButton
+          <Button onClick={handleClick}> Confirmar </Button>
+          <Button
             cancelButton
             onClick={() => setTimeout(() => setActiveMode(false), 200)}
           >
             {" "}
             Cancelar{" "}
-          </DeleteButton>
+          </Button>
         </ConfirmBox>
       )}
     </>
