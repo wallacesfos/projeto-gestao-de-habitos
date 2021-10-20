@@ -2,20 +2,21 @@ import styled from "styled-components";
 
 export const ContainerNav = styled.ul`
   @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap");
+  width: 100%;
   text-align: center;
-  flex-basis: none !important;
+  display: flex;
+  flex-wrap: wrap;
   li {
-    display: inline-flex;
+    flex-basis: 50%;
     font-family: "Red Hat Text";
     font-weight: 600;
     color: var(--color-cinzaEscuro);
     padding: 5px;
     line-height: 30px;
   }
-  @media (min-width: 600px) {
-    display: inline-flex;
+  @media (min-width: 800px) {
     li {
-      margin: 0px 20px;
+      flex-basis: 20%;
       padding: 0px;
     }
   }
