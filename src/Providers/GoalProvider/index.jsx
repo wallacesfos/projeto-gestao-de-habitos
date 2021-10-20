@@ -6,13 +6,6 @@ const GoalContext = createContext();
 export const GoalProvider = ({ children }) => {
   const [currentGoal, setCurrentGoal] = useState(null);
 
-  // useEffect(() => {
-  //   const init = async () => {
-  //     await updateCurrentGoal(210);
-  //   };
-  //   init();
-  // }, []);
-
   const getGoal = async (goal_id) => {
     let resp = await getSpecificGoal(goal_id);
 
