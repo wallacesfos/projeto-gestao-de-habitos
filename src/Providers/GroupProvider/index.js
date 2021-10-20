@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { getSpecificGroup } from "../../Utils/endpoints/groups";
 
 const group = {
@@ -62,6 +62,10 @@ const GroupContext = createContext();
 
 export const GroupProvider = ({ children }) => {
   const [currentGroup, setCurrentGroup] = useState(group);
+
+  useEffect(() => {
+    updateCurrentGroup(20);
+  }, []);
 
   const getGroup = async (group_id = currentGroup.id) => {
     let resp = {};
