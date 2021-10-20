@@ -19,7 +19,7 @@ export const Container = styled.div`
     flex-direction: row;
     padding: 0 1.5rem;
   }
-  @media (min-width: 2560px) {
+  @media (min-width: 1080px) {
     flex-direction: row;
     padding: 0 1.5rem;
     justify-content: center;

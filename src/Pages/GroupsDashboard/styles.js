@@ -55,3 +55,11 @@ export const CardsContainer = styled.div`
     margin-bottom: 1rem;
   }
 `;
+
+export const SearchContainer = styled.div`
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 1024px) {
+    min-width: 700px;
+  }
+`;

@@ -2,14 +2,16 @@ import Cards from "../../Components/Cards";
 import NewCard from "../../Components/NewCard";
 import { PopUpNewGroup } from "../../Components/PopUpNewGroup";
 import Header from "../../Components/HeaderDashboard/index";
-import { Container, CardsContainer } from "./styles";
-import { useState } from "react";
+import { Container, CardsContainer, SearchContainer } from "./styles";
+import Search from "../../Components/Search";
+import { useEffect, useState } from "react";
+import { getSubscriptions } from "../../Utils/endpoints/groups";
 
 export const GroupsDashboard = () => {
-  const [groups, setGroups] = useState(false);
+  const [newGroups, setNewGroups] = useState(false);
 
   const showPopUp = () => {
-    groups === true ? setGroups(false) : setGroups(true);
+    newGroups === true ? setNewGroups(false) : setNewGroups(true);
   };
   return (
     <Container>
@@ -32,9 +34,12 @@ export const GroupsDashboard = () => {
         <Cards title="lorem" description="lorem" />
         <NewCard callback={showPopUp} />
       </CardsContainer>
-      {groups === true && <PopUpNewGroup />}
-      <h1 style={{ marginBottom: 0 }}>Todos os Grupos</h1>
-      <Header placeHolder="Digite o nome do grupo que deseja" />
+      {newGroups === true && <PopUpNewGroup />}
+      <h1 style={{ marginBottom: 30 }}>Todos os Grupos</h1>
+      {/* <Header placeHolder="Digite o nome do grupo que deseja" /> */}
+      <SearchContainer>
+        <Search placeHolder="Digite o nome do grupo que deseja" />
+      </SearchContainer>
       <CardsContainer>
         <Cards title="lorem" description="lorem" />
         <Cards title="lorem" description="lorem" />
