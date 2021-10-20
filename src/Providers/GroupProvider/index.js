@@ -29,13 +29,8 @@ export const GroupProvider = ({ children }) => {
   }, []);
 
   const getGroup = async (group_id) => {
-    let resp = {};
-    await getSpecificGroup(group_id)
-      .then(({ data }) => {
-        setCurrentGroup(data);
-        resp = data;
-      })
-      .catch((err) => console.log(err.response));
+    let resp = await getSpecificGroup(group_id);
+    setCurrentGroup(resp.data);
 
     return resp;
   };
