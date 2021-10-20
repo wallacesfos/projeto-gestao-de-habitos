@@ -1,45 +1,43 @@
 import { TextField, Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FlexContainer, Form, Title, Login, Block, Cadastre } from "./style";
-import { Schema } from "../Yup";
-import { createAcount } from "../../Utils/endpoints/user";
+import { Form, Title, Login, Block, Cadastre } from "./style";
+import { login } from "../../Utils/endpoints/user";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { LoginSchema } from "../Yup";
 
-export default function Register() {
+export default function SignIn() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(Schema) });
+  } = useForm({ resolver: yupResolver(LoginSchema) });
 
   const handleForm = async (data) => {
-    const formData = {
+    const resp = await login({
       username: data.name,
-      email: data.email,
       password: data.password,
-    };
+    });
 
-    const resp = await createAcount(formData);
     console.log(resp);
-
-    if (resp.status === 400) {
-      toast.error("Usuário já existe");
+    if (resp.status === 401) {
+      toast.error("A conta não existe");
     }
 
-    if (resp.status === 201) {
-      toast.success("Conta criada com sucesso!");
+    if (resp.status === 200) {
+      localStorage.clear();
+      localStorage.setItem("@token", JSON.stringify(resp.data.access));
     }
   };
 
   return (
-    // <FlexContainer>
     <Form className="formRegister" onSubmit={handleSubmit(handleForm)}>
       <ToastContainer />
-      <Title>Registre-se</Title>
+      <Title>Usuário</Title>
       <div className="divTexts">
         <TextField
+          required
           id="outlined-required"
           variant="outlined"
           size="small"
@@ -53,23 +51,10 @@ export default function Register() {
         />
       </div>
 
+      <Title>Senha</Title>
       <div className="divTexts">
         <TextField
-          id="outlined-required"
-          variant="outlined"
-          size="small"
-          color="primary"
-          margin="normal"
-          label="Email"
-          {...register("email")}
-          error={!!errors.email}
-          helperText={errors.email?.message}
-          className="inputField"
-        />
-      </div>
-
-      <div className="divTexts">
-        <TextField
+          required
           id="outlined-required"
           variant="outlined"
           size="small"
@@ -83,31 +68,15 @@ export default function Register() {
           className="inputField"
         />
       </div>
-      <div className="divTexts">
-        <TextField
-          id="outlined-required"
-          variant="outlined"
-          size="small"
-          color="primary"
-          margin="normal"
-          label="Confirme senha"
-          type="password"
-          {...register("passwordConfirmation")}
-          error={!!errors.passwordConfirmation}
-          helperText={errors.passwordConfirmation?.message}
-          className="inputField"
-        />
-      </div>
 
       <Block>
         <Button className="btn-primary" type="Submit" variant="contained">
-          Cadastrar
+          Entrar
         </Button>
       </Block>
       <Cadastre className="text-login">
-        Já é cadastrado? <Login>Faça login</Login>
+        Não tem cadastro? <Login>Cadastre-se</Login>
       </Cadastre>
     </Form>
-    // </FlexContainer>
   );
 }

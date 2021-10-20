@@ -7,7 +7,7 @@ export default function Habits() {
   return (
     <>
       <Container>
-        <Header />
+        <Header placeHolder="Buscar seus Hábitos..." />
         <Main>
           <Section>
             <h1>Hábitos</h1>

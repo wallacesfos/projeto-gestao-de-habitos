@@ -1,13 +1,19 @@
 import { TextField } from "@material-ui/core";
 import { ContainerSearch } from "./style.js";
-export default function Search({ callback, param, variavel, setVariavel }) {
+export default function Search({
+  callback,
+  param,
+  variavel,
+  setVariavel,
+  placeHolder,
+}) {
   return (
     <ContainerSearch>
       <div className="Col-input">
         <TextField
           className="Search"
           id="outlined-basic"
-          label="Digite o nome do habito..."
+          label={placeHolder}
           variant="outlined"
         />
       </div>
