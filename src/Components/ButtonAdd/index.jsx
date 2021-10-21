@@ -1,4 +1,13 @@
-import { ButtonNew } from "./style.js";
+import { ButtonNew, Container, Conversation } from "./style.js";
 export default function ButtonAdd({ callback, param }) {
-  return <ButtonNew onClick={() => callback(param)}></ButtonNew>;
+  return (
+    <Container>
+      <div className="Container-col">
+        <ButtonNew onClick={() => callback(param)}></ButtonNew>
+      </div>
+      <div className="Container-col">
+        <Conversation>Adicionar Hábito!</Conversation>
+      </div>
+    </Container>
+  );
 }
