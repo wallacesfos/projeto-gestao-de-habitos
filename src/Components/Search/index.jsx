@@ -18,8 +18,11 @@ const Search = ({
           id="outlined-basic"
           label={placeHolder}
           variant="outlined"
-          value={variavel}
-          onChange={(e) => setVariavel(e.target.value)}
+          value={input}
+          onChange={(e) => {
+            // setVariavel(e.target.value);
+            setInput(e.target.value);
+          }}
         />
       </div>
       <div className="Col-button">

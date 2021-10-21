@@ -1,33 +1,33 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getGroups } from "../../Utils/endpoints/groups";
 
-const GroupContext = createContext();
+const GroupContext2 = createContext();
 
-export const GroupProvider = ({ children }) => {
+export const GroupProvider2 = ({ children }) => {
   useEffect(() => {
-    getGroups().then((res) => setCurrentGroups(res.data.results));
+    getGroups().then((res) => setCurrentGroups2(res.data.results));
   }, []);
-  const [currentGroups, setCurrentGroups] = useState([]);
+  const [currentGroups2, setCurrentGroups2] = useState([]);
 
-  const getAllGroups = async () => {
+  const getAllGroups2 = async () => {
     const resp = await getGroups();
-    setCurrentGroups(resp.data.results);
+    setCurrentGroups2(resp.data.results);
     return resp;
   };
 
-  const updateCurrentGroups = () => getAllGroups();
+  const updateCurrentGroups2 = () => getAllGroups2();
 
   const states = {
-    currentGroups,
-    updateCurrentGroups,
-    setCurrentGroups,
+    currentGroups2,
+    updateCurrentGroups2,
+    setCurrentGroups2,
   };
 
   return (
-    <GroupContext.Provider value={states}>{children}</GroupContext.Provider>
+    <GroupContext2.Provider value={states}>{children}</GroupContext2.Provider>
   );
 };
 
-const useGroup = () => useContext(GroupContext);
+const useGroup2 = () => useContext(GroupContext2);
 
-export default useGroup;
+export default useGroup2;

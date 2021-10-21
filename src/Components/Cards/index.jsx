@@ -13,18 +13,27 @@ function Cards({
   callbackEdit,
   param,
   data,
+  edit,
+  delet,
+  showButton,
 }) {
   return (
     <ContainerCard>
-      <Close edit param={param} callback={() => callbackEdit(data)} />
-      <Close delet param={param} callback={() => callbackClose(data.id)} />
+      <Close edit={edit} param={param} callback={() => callbackEdit(data)} />
+      <Close
+        delet={delet}
+        param={param}
+        callback={() => callbackClose(data.id)}
+      />
       <H1>{title}</H1>
       <P>{description}</P>
       <P>{category}</P>
       <P>{usersOnGroup}</P>
-      <button className="btn-primary" onClick={() => callback()}>
-        {placeholder}
-      </button>
+      {showButton && (
+        <button className="btn-primary" onClick={() => callback()}>
+          {placeholder}
+        </button>
+      )}
     </ContainerCard>
   );
 }

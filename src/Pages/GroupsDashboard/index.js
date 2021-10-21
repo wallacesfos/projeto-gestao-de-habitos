@@ -5,7 +5,7 @@ import Header from "../../Components/HeaderDashboard/index";
 import { Container, CardsContainer, SearchContainer } from "./styles";
 import Search from "../../Components/Search";
 import { useEffect, useState } from "react";
-import useGroup from "../../Providers/groupsProvider";
+import useGroup2 from "../../Providers/groupsProvider";
 import { toast } from "react-toastify";
 import {
   getSubscriptions,
@@ -18,7 +18,8 @@ const token = JSON.parse(localStorage.getItem("@Quero_token"));
 
 export const GroupsDashboard = () => {
   const [newGroups, setNewGroups] = useState(false);
-  const { currentGroups, updateCurrentGroups, setCurrentGroups } = useGroup();
+  const { currentGroups2, updateCurrentGroups2, setCurrentGroups2 } =
+    useGroup2();
   const { currentSubs, updateCurrentSubs, setCurrentSubs } = useSubGroup();
 
   const showPopUp = () => {
@@ -36,7 +37,7 @@ export const GroupsDashboard = () => {
       if (res.status === 400) toast.error("Preencha todos os campos");
     });
     updateCurrentSubs();
-    updateCurrentGroups();
+    updateCurrentGroups2();
   };
 
   const joinGroup = async (currentId) => {
@@ -54,7 +55,7 @@ export const GroupsDashboard = () => {
           success: "Você se juntou com sucesso",
         }
       )
-      .then(() => updateCurrentGroups());
+      .then(() => updateCurrentGroups2());
   };
 
   const leaveGroup = async (currentId) => {
@@ -71,14 +72,14 @@ export const GroupsDashboard = () => {
           error: "Aconteceu algum erro, tente novamente",
         }
       )
-      .then(() => updateCurrentGroups());
+      .then(() => updateCurrentGroups2());
   };
 
   const findGroup = (input) => {
-    const filtered = currentGroups.filter(
+    const filtered = currentGroups2.filter(
       (group) => group.name.toLowerCase() === input.toLowerCase()
     );
-    setCurrentGroups(filtered);
+    setCurrentGroups2(filtered);
   };
 
   const findMyGroups = (input) => {
@@ -102,13 +103,15 @@ export const GroupsDashboard = () => {
       <CardsContainer>
         {currentSubs.map((subs, index) => (
           <Cards
+            data={subs}
             title={subs.name}
+            callbackClose={leaveGroup}
             description={subs.description}
             category={subs.category}
             usersOnGroup={subs.users_on_group.length}
             key={index}
-            callback={() => leaveGroup(subs.id)}
-            placeholder="Sair do Grupo"
+            delet
+            edit
           />
         ))}
         <NewCard callback={showPopUp} />
@@ -118,13 +121,13 @@ export const GroupsDashboard = () => {
       <SearchContainer>
         <Search
           callback={findGroup}
-          resetFunction={updateCurrentGroups}
+          resetFunction={updateCurrentGroups2}
           param
           placeHolder="Digite o nome do grupo que deseja"
         />
       </SearchContainer>
       <CardsContainer>
-        {currentGroups.map((groups) => (
+        {currentGroups2.map((groups) => (
           <Cards
             title={groups.name}
             description={groups.description}
@@ -133,6 +136,7 @@ export const GroupsDashboard = () => {
             id={parseInt(groups.id)}
             callback={() => joinGroup(groups.id)}
             placeholder="Juntar-se"
+            showButton
           />
         ))}
       </CardsContainer>

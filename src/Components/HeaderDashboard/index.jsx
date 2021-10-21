@@ -21,13 +21,20 @@ export default function Header({
         </div>
       )}
       <div className="col-right">
-        <Nav dashboard />
+        {showNav && <Nav dashboard />}
         <Search
-          callback={callback}
           placeHolder={placeHolder}
-          variavel={variavel}
-          setVariavel={setVariavel}
+          callback={callback}
+          resetFunction={resetFunction}
+          param
         />
+        {/* // <Nav dashboard />
+        // <Search
+        //   callback={callback}
+        //   placeHolder={placeHolder}
+        //   variavel={variavel}
+        //   setVariavel={setVariavel}
+        // /> */}
       </div>
     </Container>
   );
