@@ -59,4 +59,24 @@ export const GlobalStyle = createGlobalStyle`
         border-radius: 150px;
     }
 
+    .margin-left-input{
+        margin-left: 7px !important;
+    }
+
+    .margin-right-input{
+        margin-right: 7px !important;
+    }
+
+    .mini{
+        width: 150px;
+    }
+
+    .MuiFormControl-root{
+        border-radius: 20px;
+    }
+
+    .MuiFormControl-root div{
+        border-radius: 20px;
+    }
+
 `;
