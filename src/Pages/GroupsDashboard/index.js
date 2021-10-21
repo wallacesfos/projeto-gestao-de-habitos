@@ -6,7 +6,7 @@ import { Container, CardsContainer, SearchContainer } from "./styles";
 import Search from "../../Components/Search";
 import { useEffect, useState } from "react";
 import useGroup from "../../Providers/groupsProvider";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import {
   getSubscriptions,
   subscribeToGroup,
@@ -14,8 +14,6 @@ import {
   createGroup,
 } from "../../Utils/endpoints/groups";
 import useSubGroup from "../../Providers/currentGroupsProvider";
-import { render } from "@testing-library/react";
-import { filter } from "dom-helpers";
 const token = JSON.parse(localStorage.getItem("@Quero_token"));
 
 export const GroupsDashboard = () => {
@@ -82,6 +80,13 @@ export const GroupsDashboard = () => {
     );
     setCurrentGroups(filtered);
   };
+
+  const findMyGroups = (input) => {
+    const filtered = currentSubs.filter(
+      (group) => group.name.toLowerCase() === input.toLowerCase()
+    );
+    setCurrentSubs(filtered);
+  };
   return (
     <Container>
       <Header
@@ -89,6 +94,9 @@ export const GroupsDashboard = () => {
         showNav
         placeHolder="Digite o nome do seu grupo"
         showLeftCol
+        callback={findMyGroups}
+        resetFunction={updateCurrentSubs}
+        param
       />
       <h1>Meus Grupos</h1>
       <CardsContainer>
