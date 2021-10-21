@@ -3,13 +3,16 @@ import Route from "./routes";
 import Home from "./../Pages/Home";
 import Login from "./../Pages/Login";
 import Subscribe from "../Pages/Subscribe";
-import GroupPage from "../Pages/GroupPage";
+// import GroupPage from "../Pages/GroupPage";
+import { GroupsDashboard } from "../Pages/GroupsDashboard";
+import Register from "../Components/Register";
 const Routes = () => (
   <Switch>
-    <Route path="/" exact component={Home} />
-    <Route isPrivate path="/group-page" exact component={GroupPage} />
-    <Route path="/login" exact component={Login} />
-    <Route path="/sign-up" exact component={Subscribe} />
+    <Route exact path="/" component={Home} />
+    {/* <Route isPrivate path="/group-page" exact component={GroupPage} /> */}
+    <Route path="/login" component={Login} />
+    <Route path="/sign-up" component={Subscribe} />
+    <Route isPrivate path="/group-dashboard" component={GroupsDashboard} />
   </Switch>
 );
 export default Routes;

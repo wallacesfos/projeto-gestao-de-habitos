@@ -1,3 +1,4 @@
+import { useHistory } from "react-router";
 import Nav from "../../Components/Nav";
 import logo from "../../Utils/Assets/logo.png";
 import svg1 from "../../Utils/Assets/svg1.svg";
@@ -11,6 +12,7 @@ import {
   Section,
 } from "../pagesStyle.js";
 export default function Home() {
+  const history = useHistory();
   return (
     <>
       <Container>
@@ -45,7 +47,12 @@ export default function Home() {
           </div>
         </Section>
         <ContainerButton>
-          <button className="btn-primary btn-primary">Cadastre-se</button>
+          <button
+            className="btn-primary btn-primary"
+            onClick={() => history.push("sign-up")}
+          >
+            Cadastre-se
+          </button>
         </ContainerButton>
         <ContainerApp>
           <div>Baixe Nosso App:</div>
