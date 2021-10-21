@@ -46,9 +46,7 @@ export default function Nav({ dashboard = false, footer = false }) {
       )}
       {dashboard && (
         <ContainerNav>
-          <li>
-            <Link to="/meu-perfil">Meu Perfil</Link>
-          </li>
+          <li>Meu Perfil</li>
           <li>
             <Link to="/group-dashboard">Meus Grupos</Link>
           </li>
