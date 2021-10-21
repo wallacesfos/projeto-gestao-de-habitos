@@ -43,7 +43,11 @@ export default function Habits() {
     loadHabits();
   };
   const handleSearch = () => {
-    setHabits(habits.filter((element) => element.title === searchInput));
+    if (searchInput !== "") {
+      setHabits(habits.filter((element) => element.title === searchInput));
+    } else {
+      loadHabits();
+    }
   };
   useEffect(() => {
     loadHabits();
