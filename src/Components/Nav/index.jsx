@@ -1,5 +1,6 @@
 import { TextField } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { Out } from "../Out/index.jsx";
 import { ContainerNav, Newsletter } from "./style.js";
 export default function Nav({ dashboard = false, footer = false }) {
   //props boleanas dashboard e footer
@@ -56,7 +57,9 @@ export default function Nav({ dashboard = false, footer = false }) {
             <Link to="/suporte">Suporte</Link>
           </li>
           <li>
-            <Link to="/sair">Sair</Link>
+            <button onClick={() => Out()} className="ButtonOut">
+              Sair
+            </button>
           </li>
         </ContainerNav>
       )}

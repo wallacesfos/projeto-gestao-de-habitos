@@ -20,6 +20,7 @@ export const ContainerNav = styled.ul`
     font-family: "Red Hat Text";
     font-weight: 600;
     color: var(--color-cinzaEscuro);
+
     :hover {
       text-decoration: underline;
     }
@@ -28,6 +29,17 @@ export const ContainerNav = styled.ul`
     li {
       /* flex-basis: 40%; */
       padding: 5px 10px;
+    }
+  }
+  .ButtonOut {
+    background-color: transparent;
+    border: none;
+    font-family: "Red Hat Text";
+    font-weight: 600;
+    color: var(--color-cinzaEscuro);
+    cursor: pointer;
+    :hover {
+      text-decoration: underline;
     }
   }
 `;
