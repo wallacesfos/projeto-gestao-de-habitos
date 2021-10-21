@@ -1,3 +1,4 @@
+import jwtDecode from "jwt-decode";
 import { createContext, useContext, useEffect, useState } from "react";
 import { getSpecificGroup } from "../../Utils/endpoints/groups";
 
@@ -21,6 +22,8 @@ const GroupContext = createContext();
 export const GroupProvider = ({ children }) => {
   const [currentGroup, setCurrentGroup] = useState(group);
 
+  const [userIsOnGroup, setIsOntheGroup] = useState(false);
+
   useEffect(() => {
     const init = async () => {
       await updateCurrentGroup(20);
@@ -35,13 +38,28 @@ export const GroupProvider = ({ children }) => {
     return resp;
   };
 
+  const validUser = () => {
+    const token = JSON.parse(localStorage.getItem("@Quero_token"));
+
+    const { user_id } = jwtDecode(token);
+    const isOnTheGroup = currentGroup.users_on_group.some(
+      ({ id }) => id === user_id
+    );
+
+    setIsOntheGroup(isOnTheGroup);
+    return isOnTheGroup;
+  };
+
   const updateCurrentGroup = (group_id = currentGroup.id) => {
     getGroup(group_id);
+    validUser();
   };
 
   const states = {
     currentGroup,
     updateCurrentGroup,
+    userIsOnGroup,
+    validUser,
   };
 
   return (
