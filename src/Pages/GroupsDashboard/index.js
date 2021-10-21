@@ -15,11 +15,12 @@ import {
 } from "../../Utils/endpoints/groups";
 import useSubGroup from "../../Providers/currentGroupsProvider";
 import { render } from "@testing-library/react";
+import { filter } from "dom-helpers";
 const token = JSON.parse(localStorage.getItem("@Quero_token"));
 
 export const GroupsDashboard = () => {
   const [newGroups, setNewGroups] = useState(false);
-  const { currentGroups, updateCurrentGroups } = useGroup();
+  const { currentGroups, updateCurrentGroups, setCurrentGroups } = useGroup();
   const { currentSubs, updateCurrentSubs, setCurrentSubs } = useSubGroup();
 
   const showPopUp = () => {
@@ -74,6 +75,13 @@ export const GroupsDashboard = () => {
       )
       .then(() => updateCurrentGroups());
   };
+
+  const findGroup = (input) => {
+    const filtered = currentGroups.filter(
+      (group) => group.name.toLowerCase() === input.toLowerCase()
+    );
+    setCurrentGroups(filtered);
+  };
   return (
     <Container>
       <Header
@@ -100,7 +108,12 @@ export const GroupsDashboard = () => {
       {newGroups === true && <PopUpNewGroup callback={createNewGroup} />}
       <h1 style={{ marginBottom: 30 }}>Todos os Grupos</h1>
       <SearchContainer>
-        <Search placeHolder="Digite o nome do grupo que deseja" />
+        <Search
+          callback={findGroup}
+          resetFunction={updateCurrentGroups}
+          param
+          placeHolder="Digite o nome do grupo que deseja"
+        />
       </SearchContainer>
       <CardsContainer>
         {currentGroups.map((groups) => (
