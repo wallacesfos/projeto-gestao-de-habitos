@@ -76,17 +76,21 @@ export const GroupsDashboard = () => {
   };
 
   const findGroup = (input) => {
-    const filtered = currentGroups2.filter(
+    const filtered = currentGroups2.find(
       (group) => group.name.toLowerCase() === input.toLowerCase()
     );
-    setCurrentGroups2(filtered);
+    filtered && input !== ""
+      ? setCurrentGroups2([filtered])
+      : toast.error("Grupo não encontrado");
   };
 
   const findMyGroups = (input) => {
-    const filtered = currentSubs.filter(
+    const filtered = currentSubs.find(
       (group) => group.name.toLowerCase() === input.toLowerCase()
     );
-    setCurrentSubs(filtered);
+    filtered && input !== ""
+      ? setCurrentSubs([filtered])
+      : toast.error("Grupo não encontrado");
   };
   return (
     <Container>

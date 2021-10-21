@@ -13,7 +13,6 @@ const Routes = () => (
     <Route path="/login" component={Login} />
     <Route path="/sign-up" component={Subscribe} />
     <Route isPrivate path="/group-dashboard" component={GroupsDashboard} />
-    <Route isPrivate path="/group-page" exact component={GroupPage} />
     <Route isPrivate path="/dashboard" exact component={Habits} />
   </Switch>
 );

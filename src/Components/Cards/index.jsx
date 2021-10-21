@@ -19,12 +19,11 @@ function Cards({
 }) {
   return (
     <ContainerCard>
-      <Close edit={edit} param={param} callback={() => callbackEdit(data)} />
-      <Close
-        delet={delet}
-        param={param}
-        callback={() => callbackClose(data.id)}
-      />
+      {edit && <Close edit param={param} callback={() => callbackEdit(data)} />}
+      {delet && (
+        <Close delet param={param} callback={() => callbackClose(data.id)} />
+      )}
+
       <H1>{title}</H1>
       <P>{description}</P>
       <P>{category}</P>

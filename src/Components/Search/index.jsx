@@ -26,7 +26,13 @@ const Search = ({
         />
       </div>
       <div className="Col-button">
-        <button className="btn-primary" onClick={() => callback(input)}>
+        <button
+          className="btn-primary"
+          onClick={() => {
+            callback(input);
+            setInput("");
+          }}
+        >
           Pesquisar
         </button>
         {param && (

@@ -28,13 +28,13 @@ export default function Header({
           resetFunction={resetFunction}
           param
         />
-        {/* // <Nav dashboard />
-        // <Search
-        //   callback={callback}
-        //   placeHolder={placeHolder}
-        //   variavel={variavel}
-        //   setVariavel={setVariavel}
-        // /> */}
+        {/* <Nav dashboard />
+        <Search
+          callback={callback}
+          placeHolder={placeHolder}
+          variavel={variavel}
+          setVariavel={setVariavel}
+        /> */}
       </div>
     </Container>
   );
