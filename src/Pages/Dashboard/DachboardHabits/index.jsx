@@ -14,7 +14,7 @@ import { useContext } from "react";
 import { HabitsContext } from "../../../Providers/Habits";
 import FormAddHabits from "../../../Components/FormAddHabits";
 import { toast } from "react-toastify";
-import Close from "../../../Components/Close/index.jsx";
+import ClosePage from "../../../Components/ClosePage";
 import jwtDecode from "jwt-decode";
 export default function Habits() {
   const { loadHabits, habits, setHabits } = useContext(HabitsContext);
@@ -56,6 +56,7 @@ export default function Habits() {
     } else {
       toast.error("Erro ao tentar adicionar!");
     }
+    isFormAddHabits();
     loadHabits();
     resetInputsHabits();
   };
@@ -99,6 +100,7 @@ export default function Habits() {
     } else {
       toast.error("Erro ao tentar Atualziar!");
     }
+    handleIsModal();
     resetInputsHabits();
     loadHabits();
   };
@@ -155,7 +157,7 @@ export default function Habits() {
               )}
               {isModal && (
                 <ContainerModal>
-                  <Close delet callback={() => handleIsModal()} />
+                  <ClosePage delet callback={() => handleIsModal()} />
                   <div className="Modal">
                     <FormAddHabits
                       callback={handleUpdateHabits}
