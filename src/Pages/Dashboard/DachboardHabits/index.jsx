@@ -4,6 +4,7 @@ import ButtonAdd from "../../../Components/ButtonAdd/index.jsx";
 import Cards from "../../../Components/Cards/index.jsx";
 import Footer from "../../../Components/Footer";
 import { useEffect, useState } from "react";
+import emptySvg from "../../../Utils/Assets/vazio.svg";
 import {
   createHabit,
   deleteHabit,
@@ -147,6 +148,11 @@ export default function Habits() {
                     data={element}
                   />
                 ))}
+              {!habits[0] && (
+                <div className="Empty">
+                  <img src={emptySvg} alt="vazio Quero!" />
+                </div>
+              )}
               {isModal && (
                 <ContainerModal>
                   <Close delet callback={() => handleIsModal()} />

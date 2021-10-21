@@ -39,6 +39,14 @@ export const Section = styled.div`
       justify-content: flex-start;
     }
   }
+  .Empty {
+    width: 100%;
+    text-align: center;
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
 `;
 export const ContainerModal = styled.div`
   z-index: 2;
