@@ -6,7 +6,7 @@ import ActivityPopupCard from "../ActivityPopupCard";
 
 import GoalPopupCard from "../GoalPopupCard";
 import GroupCardSection from "../GroupSection";
-import { AsideBar, Item } from "./styles";
+import { AsideBar, Item, ItemEmpty } from "./styles";
 
 const ActivitiesSection = ({ activities }) => {
   const { currentGroup } = useGroup();
@@ -45,9 +45,9 @@ const ActivitiesSection = ({ activities }) => {
       <GroupCardSection variant="activities" {...{ handleCreate }}>
         <ul>
           {activities.length === 0 && (
-            <Item key="1">
+            <ItemEmpty key="1">
               <p className="empty">Vazio</p>
-            </Item>
+            </ItemEmpty>
           )}
           {activities.map(({ id, title, realization_time }) => {
             const meses = [

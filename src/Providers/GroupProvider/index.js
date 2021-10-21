@@ -24,13 +24,6 @@ export const GroupProvider = ({ children }) => {
 
   const [userIsOnGroup, setIsOntheGroup] = useState(false);
 
-  // useEffect(() => {
-  //   const init = async () => {
-  //     await updateCurrentGroup(20);
-  //   };
-  //   init();
-  // }, []);
-
   const getGroup = async (group_id) => {
     let resp = await getSpecificGroup(group_id);
     setCurrentGroup(resp.data);

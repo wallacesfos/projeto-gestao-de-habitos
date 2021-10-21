@@ -6,7 +6,7 @@ import { useGroup } from "../../Providers/GroupProvider";
 import { createGoal } from "../../Utils/endpoints/goals";
 import GoalPopupCard from "../GoalPopupCard";
 import GroupCardSection from "../GroupSection";
-import { AsideBar, Item } from "./styles";
+import { AsideBar, Item, ItemEmpty } from "./styles";
 
 const GoalsSection = ({ goals }) => {
   const { currentGoal, updateCurrentGoal, updateGroupGoals } = useGoal();
@@ -15,6 +15,10 @@ const GoalsSection = ({ goals }) => {
 
   const deleteToast = () => {
     toast.success("Meta deletada!");
+  };
+
+  const checkinToast = () => {
+    toast.success("Meta atualizada!");
   };
 
   const handleCreate = async (data) => {
@@ -38,9 +42,9 @@ const GoalsSection = ({ goals }) => {
       <GroupCardSection variant="goals" {...{ handleCreate }}>
         <ul>
           {goals.length === 0 && (
-            <Item key="1">
+            <ItemEmpty key="1">
               <p className="empty">Vazio</p>
-            </Item>
+            </ItemEmpty>
           )}
           {goals.map(({ title, difficulty, how_much_achieved, id }) => (
             <div key={id}>
@@ -54,7 +58,9 @@ const GoalsSection = ({ goals }) => {
                 <p>{difficulty.toUpperCase()}</p>
                 <div className="progressBar"></div>
               </Item>
-              {currentGoal?.id === id && <GoalPopupCard {...{ deleteToast }} />}
+              {currentGoal?.id === id && (
+                <GoalPopupCard {...{ deleteToast, checkinToast }} />
+              )}
             </div>
           ))}
         </ul>

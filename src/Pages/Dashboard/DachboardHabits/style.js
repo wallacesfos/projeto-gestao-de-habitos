@@ -8,6 +8,8 @@ export const Container = styled.div`
 export const Main = styled.div`
   width: 100%;
   max-width: 800px;
+  height: 100%;
+  min-height: 700px;
   margin: 0 auto;
   padding: 20px;
   display: flex;

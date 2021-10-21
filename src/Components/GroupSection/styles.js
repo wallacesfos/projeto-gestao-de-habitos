@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const SectionBox = styled.div`
   width: 100%;
+  max-width: 430px;
 
   padding: 4px;
-  margin: 20px 0;
+  margin: 20px auto;
   border-radius: 10px;
 
   background-color: white;
@@ -36,6 +37,7 @@ export const SectionBox = styled.div`
     .AddButton {
       height: 40px;
       width: 40px;
+      cursor: pointer;
 
       color: ${({ color }) => color};
       filter: brightness(0.6);
