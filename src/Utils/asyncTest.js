@@ -1,16 +1,17 @@
 import { toast, ToastContainer } from "react-toastify";
 import { deleteActivity } from "./endpoints/activities";
+import { getHabits } from "./endpoints/habits";
 
 const AsyncButtonTest = () => {
   const token =
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM1MDgzNDE2LCJqdGkiOiJlNDRiZjNiZTI5Yzg0NzU4YWMwMTg0ZjkzZGI3OWY2NyIsInVzZXJfaWQiOjI4MX0.-7EtcSsxHywuRPqQGm23yo1RYl_08u2Xvg9KXjpW4ms";
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM1MjEwMjE1LCJqdGkiOiJkNTYwMmFiMDk2NWM0NjYzOTk2YjRkOThlNDZiN2M1ZiIsInVzZXJfaWQiOjI4OX0.gMVmXCRJw33hoFaIQ8f96LLDfRm64H-9XLrZmJYTvpQ";
 
   const body = {
     title: "Crossfit Atualizado",
   };
 
   const handle = async () => {
-    const resp = await deleteActivity({ activity_id: 193, token });
+    const resp = await getHabits(token);
 
     if (resp.status === 400) {
       toast.error("Apenas o criador edita");
