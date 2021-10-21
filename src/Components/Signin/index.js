@@ -31,7 +31,7 @@ export default function SignIn() {
     if (resp.status === 200) {
       localStorage.clear();
       localStorage.setItem("@token", JSON.stringify(resp.data.access));
-      // history.push('/dashboard');
+      history.push('/dashboard');
     }
   };
 

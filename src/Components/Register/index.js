@@ -1,7 +1,7 @@
 import { TextField, Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FlexContainer, Form, Title, Login, Block, Cadastre } from "./style";
+import { Form, Title, Login, Block, Cadastre } from "./style";
 import { Schema } from "../Yup";
 import { createAcount } from "../../Utils/endpoints/user";
 import { ToastContainer, toast } from "react-toastify";
@@ -33,7 +33,6 @@ export default function Register() {
   };
 
   return (
-    // <FlexContainer>
     <Form className="formRegister" onSubmit={handleSubmit(handleForm)}>
       <ToastContainer />
       <Title>Registre-se</Title>
