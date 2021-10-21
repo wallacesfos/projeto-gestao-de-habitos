@@ -40,6 +40,10 @@ export const Item = styled.li`
       transform: scale(0.99);
     }
   }
+
+  @media (min-width: 1024px) {
+    width: 250px;
+  }
 `;
 
 export const ItemEmpty = styled.div`

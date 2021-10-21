@@ -16,6 +16,12 @@ export const AsideBar = styled.section`
     display: flex;
     flex-direction: column;
   }
+
+  @media (min-width: 1024px) {
+    ul {
+      flex-direction: row;
+    }
+  }
 `;
 
 export const Item = styled.li`
@@ -67,6 +73,10 @@ export const Item = styled.li`
     &:active {
       transform: scale(0.99);
     }
+  }
+
+  @media (min-width: 1024px) {
+    width: 250px;
   }
 `;
 
