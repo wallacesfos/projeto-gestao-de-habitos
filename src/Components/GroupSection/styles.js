@@ -15,8 +15,10 @@ export const SectionBox = styled.div`
     background-color: ${({ color }) => color};
     height: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+
+    padding: 0 10px;
 
     > img {
       height: 50px;
@@ -26,6 +28,21 @@ export const SectionBox = styled.div`
     > h3 {
       margin-left: 5px;
       font-size: 28px;
+      text-align: center;
+
+      flex: 1;
+    }
+
+    .AddButton {
+      height: 40px;
+      width: 40px;
+
+      color: ${({ color }) => color};
+      filter: brightness(0.6);
     }
   }
+`;
+
+export const AddButton = styled.div`
+  background-color: red;
 `;

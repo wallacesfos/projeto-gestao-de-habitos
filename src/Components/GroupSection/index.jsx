@@ -6,6 +6,7 @@ import { useGroup } from "../../Providers/GroupProvider";
 import GolsForm from "../GolsForm";
 import ActivitForm from "../ActivitForm";
 import { useState } from "react";
+import { RiAddCircleLine } from "react-icons/ri";
 
 const GroupCardSection = ({
   variant,
@@ -34,12 +35,17 @@ const GroupCardSection = ({
   return (
     <SectionBox {...{ color }}>
       <div className="headerBox">
-        {!notAddButton && !userIsOnGroup && (
-          <button onClick={() => setFormMode(true)}> Adicionar </button>
-        )}
         {formMode && <FormField {...{ handleCreate, setFormMode }} />}
         <img src={img} alt="Ícone membros" />
         <h3> {text} </h3>
+        {variant === "members" && <img src={img} alt="Ícone membros" />}
+        {!notAddButton && !userIsOnGroup && (
+          // <button onClick={() => setFormMode(true)}> Adicionar </button>
+          <RiAddCircleLine
+            onClick={() => setFormMode(true)}
+            className="AddButton"
+          />
+        )}
       </div>
       {children}
     </SectionBox>
