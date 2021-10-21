@@ -1,4 +1,5 @@
 import jwtDecode from "jwt-decode";
+import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import ActivitiesSection from "../../Components/ActivitiesSection";
 import AsideMembers from "../../Components/AsideMembers";
@@ -6,6 +7,8 @@ import ConfirmEventButton from "../../Components/ConfirmEventButton";
 import Footer from "../../Components/Footer";
 import GoalsSection from "../../Components/GoalsSection";
 import Header from "../../Components/HeaderDashboard";
+import useActivity from "../../Providers/ActivitiesProvider";
+import useGoal from "../../Providers/GoalProvider";
 import { useGroup } from "../../Providers/GroupProvider";
 import {
   subscribeToGroup,
@@ -17,15 +20,16 @@ const GroupPage = () => {
   const { currentGroup, updateCurrentGroup } = useGroup();
   const token = JSON.parse(localStorage.getItem("@Quero_token"));
   const { user_id } = jwtDecode(token);
+  const { groupGoals, updateGroupGoals } = useGoal();
 
-  const {
-    id,
-    name,
-    description,
-    users_on_group: memberList,
-    goals,
-    activities,
-  } = currentGroup;
+  const { groupActivities, updateGroupActivities } = useActivity();
+
+  useEffect(() => {
+    updateGroupGoals();
+    updateGroupActivities();
+  }, []);
+
+  const { id, name, description, users_on_group: memberList } = currentGroup;
 
   const handleUnsubscribe = async () => {
     const resp = await unsubscribeFromGroup({ group_id: id, token });
@@ -73,8 +77,8 @@ const GroupPage = () => {
         </HeaderBox>
         <main>
           <AsideMembers {...{ memberList }} />
-          <GoalsSection {...{ goals }} />
-          <ActivitiesSection {...{ activities }} />
+          <GoalsSection {...{ goals: groupGoals }} />
+          <ActivitiesSection {...{ activities: groupActivities }} />
         </main>
       </section>
       <Footer />
