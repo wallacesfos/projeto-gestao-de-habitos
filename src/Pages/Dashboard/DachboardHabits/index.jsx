@@ -150,6 +150,8 @@ export default function Habits() {
                     callbackEdit={handleIsModal}
                     param={element.id}
                     data={element}
+                    edit
+                    delet
                   />
                 ))}
               {!habits[0] && (
