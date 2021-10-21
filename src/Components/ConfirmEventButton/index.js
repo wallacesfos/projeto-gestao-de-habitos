@@ -9,6 +9,11 @@ const ConfirmEventButton = ({
 }) => {
   const [activeMode, setActiveMode] = useState(false);
 
+  const handleConfirm = async () => {
+    await handleClick();
+    setTimeout(() => setActiveMode(false), 500);
+  };
+
   const unswitableMode = (
     <Button {...{ className }} onClick={handleClick}>
       {buttonText}
@@ -27,15 +32,7 @@ const ConfirmEventButton = ({
       )}
       {activeMode && (
         <ConfirmBox>
-          <Button
-            onClick={() => {
-              handleClick();
-              setActiveMode(false);
-            }}
-          >
-            {" "}
-            Confirmar{" "}
-          </Button>
+          <Button onClick={handleConfirm}> Confirmar </Button>
           <Button
             cancelButton
             onClick={() => setTimeout(() => setActiveMode(false), 200)}

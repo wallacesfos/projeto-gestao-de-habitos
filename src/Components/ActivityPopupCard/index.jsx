@@ -17,6 +17,7 @@ import {
   deleteActivity,
   updateActivity,
 } from "../../Utils/endpoints/activities";
+import dateFormater from "../../Utils/dateFormater";
 
 const ActivityPopupCard = ({ deleteToast }) => {
   const {
@@ -67,16 +68,18 @@ const ActivityPopupCard = ({ deleteToast }) => {
     updateCurrentActivity();
   };
 
+  const formatedDate = dateFormater(realization_time);
+
   return (
     <BackdropContainer>
       <ToastContainer />
       <PopupCard>
         <CardHeader>
-          <p>{title}</p>
+          <p> Até: {formatedDate}</p>
           <CgClose onClick={handleClose} />
         </CardHeader>
 
-        <CardDescription>{realization_time}</CardDescription>
+        <CardDescription>{title}</CardDescription>
 
         <ConfirmEventButton
           {...{ handleClick: handleDelete, buttonText: "Excluir" }}
