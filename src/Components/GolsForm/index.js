@@ -2,15 +2,20 @@ import { TextField } from "@material-ui/core";
 import { Container, Title, InputsBoxs } from "./style";
 import { useState } from "react";
 
-export default function GolsForm({ handleSubmit }) {
+export default function GolsForm({ handleCreate, setFormMode }) {
   const [title, setTitle] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [percentage, setPercentage] = useState(0);
 
-  const data = {
-    title: title,
-    difficulty: difficulty,
-    how_much_achieved: percentage,
+  const handleSubmit = async () => {
+    const data = {
+      title: title,
+      difficulty: difficulty,
+      how_much_achieved: percentage,
+    };
+
+    await handleCreate(data);
+    setFormMode(false);
   };
 
   return (
@@ -42,7 +47,9 @@ export default function GolsForm({ handleSubmit }) {
           onChange={(e) => setPercentage(e.target.value)}
         />
       </InputsBoxs>
-      <button className="btn-primary mini">Cadastrar</button>
+      <button onClick={handleSubmit} className="btn-primary mini">
+        Cadastrar
+      </button>
     </Container>
   );
 }

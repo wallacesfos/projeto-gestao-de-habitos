@@ -37,7 +37,7 @@ const GroupCardSection = ({
         {!notAddButton && !userIsOnGroup && (
           <button onClick={() => setFormMode(true)}> Adicionar </button>
         )}
-        {formMode && <FormField {...{ handleCreate }} />}
+        {formMode && <FormField {...{ handleCreate, setFormMode }} />}
         <img src={img} alt="Ícone membros" />
         <h3> {text} </h3>
       </div>

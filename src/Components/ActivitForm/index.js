@@ -2,17 +2,18 @@ import { TextField } from "@material-ui/core";
 import { Container, Title, InputsBoxs } from "./style";
 import { useState } from "react";
 
-export default function ActivitForm({ handleCreate }) {
+export default function ActivitForm({ handleCreate, setFormMode }) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const data = {
       title: title,
       realization_time: `${date}T15:00:00Z`,
     };
 
-    handleCreate(data);
+    await handleCreate(data);
+    setFormMode(false);
   };
 
   return (
