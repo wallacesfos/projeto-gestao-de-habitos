@@ -39,7 +39,7 @@ const GoalPopupCard = () => {
     const resp = await updateGoal({ goal_id: id, body, token });
 
     if (resp.status === 200) {
-      toast.success("Meta atual!");
+      toast.success("Meta atualizada!");
     }
 
     updateGroupGoals();
