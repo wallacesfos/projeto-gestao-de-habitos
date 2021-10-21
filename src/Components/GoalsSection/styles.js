@@ -16,6 +16,12 @@ export const AsideBar = styled.section`
     display: flex;
     flex-direction: column;
   }
+
+  @media (min-width: 1024px) {
+    ul {
+      flex-direction: row;
+    }
+  }
 `;
 
 export const Item = styled.li`
@@ -57,12 +63,6 @@ export const Item = styled.li`
     }
   }
 
-  .empty {
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--color-placeHolder);
-  }
-
   cursor: pointer;
   transition: transform 0.1s linear;
   &:hover {
@@ -73,5 +73,22 @@ export const Item = styled.li`
     &:active {
       transform: scale(0.99);
     }
+  }
+
+  @media (min-width: 1024px) {
+    width: 250px;
+  }
+`;
+
+export const ItemEmpty = styled.div`
+  text-align: center;
+  margin: 10px auto;
+
+  width: 95%;
+
+  .empty {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-placeHolder);
   }
 `;

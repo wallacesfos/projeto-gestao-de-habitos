@@ -6,8 +6,11 @@ import { Schema } from "../Yup";
 import { createAcount } from "../../Utils/endpoints/user";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useHistory } from "react-router";
 
 export default function Register() {
+  const history = useHistory()
+
   const {
     register,
     handleSubmit,
@@ -30,6 +33,7 @@ export default function Register() {
 
     if (resp.status === 201) {
       toast.success("Conta criada com sucesso!");
+      history.push('/login')
     }
   };
 
@@ -104,7 +108,7 @@ export default function Register() {
         </Button>
       </Block>
       <Cadastre className="text-login">
-        Já é cadastrado? <Login>Faça login</Login>
+        <p>Já é cadastrado? <Login onClick={() => history.push('/login')}>Faça login</Login></p>
       </Cadastre>
     </Form>
   );

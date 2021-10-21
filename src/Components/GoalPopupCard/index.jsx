@@ -13,7 +13,7 @@ import { deleteGoal, updateGoal } from "../../Utils/endpoints/goals";
 import useGoal from "../../Providers/GoalProvider";
 import ConfirmEventButton from "../ConfirmEventButton";
 
-const GoalPopupCard = ({ deleteToast }) => {
+const GoalPopupCard = () => {
   const { currentGoal, updateCurrentGoal, resetCurrentGoal, updateGroupGoals } =
     useGoal();
 
@@ -39,7 +39,7 @@ const GoalPopupCard = ({ deleteToast }) => {
     const resp = await updateGoal({ goal_id: id, body, token });
 
     if (resp.status === 200) {
-      deleteToast();
+      toast.success("Meta atualizada!");
     }
 
     updateGroupGoals();

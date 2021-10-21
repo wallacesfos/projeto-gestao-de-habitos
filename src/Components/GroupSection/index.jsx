@@ -33,7 +33,7 @@ const GroupCardSection = ({
   const { userIsOnGroup } = useGroup();
 
   return (
-    <SectionBox {...{ color }}>
+    <SectionBox className="sectionBox" {...{ color }}>
       <div className="headerBox">
         {formMode && <FormField {...{ handleCreate, setFormMode }} />}
         <img src={img} alt="Ícone membros" />

@@ -17,6 +17,11 @@ const Providers = ({ children }) => {
           </GoalProvider>
         </ActivitiesProvider>
       </GroupProvider2>
+      {/* <ActivitiesProvider>
+        <GoalProvider>
+          <HabitsProvider>{children}</HabitsProvider>
+        </GoalProvider>
+      </ActivitiesProvider> */}
     </GroupProvider>
   );
 };
