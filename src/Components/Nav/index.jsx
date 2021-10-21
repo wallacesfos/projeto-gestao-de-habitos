@@ -55,7 +55,7 @@ export default function Nav({ dashboard = false, footer = false }) {
             <Link to="/meu-perfil">Meu Perfil</Link>
           </li>
           <li>
-            <Link to="/group">Meus Grupos</Link>
+            <Link to="/group-dashboard">Meus Grupos</Link>
           </li>
           <li>
             <Link to="/dashboard">Meus Hábitos</Link>
