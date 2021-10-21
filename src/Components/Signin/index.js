@@ -79,7 +79,7 @@ export default function SignIn() {
         </Button>
       </Block>
       <Cadastre className="text-login">
-        Não tem cadastro? <Login>Cadastre-se</Login>
+        <p>Não tem cadastro? <Login onClick={() => history.push('./sign-up')}>Cadastre-se</Login></p>
       </Cadastre>
     </Form>
   );
