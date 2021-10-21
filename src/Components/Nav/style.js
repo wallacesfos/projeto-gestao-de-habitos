@@ -9,17 +9,25 @@ export const ContainerNav = styled.ul`
   margin: 10px 0px;
   justify-content: center;
   li {
-    flex-basis: 50%;
+    /* flex-basis: 50%; */
     font-family: "Red Hat Text";
     font-weight: 600;
     color: var(--color-cinzaEscuro);
-    padding: 5px;
+    padding: 10px 10px;
     line-height: 30px;
+  }
+  li a {
+    font-family: "Red Hat Text";
+    font-weight: 600;
+    color: var(--color-cinzaEscuro);
+    :hover {
+      text-decoration: underline;
+    }
   }
   @media (min-width: 800px) {
     li {
-      flex-basis: 28%;
-      padding: 0px;
+      /* flex-basis: 40%; */
+      padding: 5px 10px;
     }
   }
 `;

@@ -1,4 +1,5 @@
 import { TextField } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { ContainerNav, Newsletter } from "./style.js";
 export default function Nav({ dashboard = false, footer = false }) {
   //props boleanas dashboard e footer
@@ -9,11 +10,20 @@ export default function Nav({ dashboard = false, footer = false }) {
     <>
       {!dashboard && (
         <ContainerNav>
-          <li> Quem Somos</li>
-          <li>Login</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/quem-somos">Quem Somos</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
           {!footer && (
             <li>
-              <button className="btn-primary btn-primary">Cadastre-se</button>
+              <Link to="/sign-up">
+                <button className="btn-primary btn-primary">Cadastre-se</button>
+              </Link>
             </li>
           )}
           {footer && (
@@ -33,10 +43,21 @@ export default function Nav({ dashboard = false, footer = false }) {
       )}
       {dashboard && (
         <ContainerNav>
-          <li>Meu Perfil</li>
-          <li>Meus Hábitos</li>
-          <li>Suporte</li>
-          <li>Sair</li>
+          <li>
+            <Link to="/meu-perfil">Meu Perfil</Link>
+          </li>
+          <li>
+            <Link to="/group">Meus Grupos</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">Meus Hábitos</Link>
+          </li>
+          <li>
+            <Link to="/suporte">Suporte</Link>
+          </li>
+          <li>
+            <Link to="/sair">Sair</Link>
+          </li>
         </ContainerNav>
       )}
     </>
