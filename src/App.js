@@ -1,6 +1,4 @@
-import Register from "./Components/Register";
 import Routes from "./Routes/";
-
 import { GlobalStyle } from "./Utils/globalStyle.js";
 
 function App() {
@@ -8,7 +6,6 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Routes />
-      <Register />
     </div>
   );
 }
