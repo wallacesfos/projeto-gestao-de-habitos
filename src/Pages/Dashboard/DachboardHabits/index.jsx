@@ -4,7 +4,10 @@ import ButtonAdd from "../../../Components/ButtonAdd/index.jsx";
 import Cards from "../../../Components/Cards/index.jsx";
 import Footer from "../../../Components/Footer";
 import { useEffect, useState } from "react";
-import { createHabit } from "../../../Utils/endpoints/habits/index.js";
+import {
+  createHabit,
+  deleteHabit,
+} from "../../../Utils/endpoints/habits/index.js";
 import { useContext } from "react";
 import { HabitsContext } from "../../../Providers/Habits";
 import FormAddHabits from "../../../Components/FormAddHabits";
@@ -23,8 +26,8 @@ export default function Habits() {
   const [howMuchAchievedHabit, setHowMuchAchievedHabit] = useState(0);
   const [useHabit, setUserHabit] = useState(0);
   const [searchInput, setSearchInput] = useState("");
+  const token = JSON.parse(localStorage.getItem("@token"));
   const handleAddHabits = async () => {
-    const token = JSON.parse(localStorage.getItem("@token"));
     const body = {
       title: titleHabit,
       category: categoryHabit,
@@ -49,13 +52,21 @@ export default function Habits() {
       loadHabits();
     }
   };
+  const handleDelete = async (habit_id) => {
+    const resp = await deleteHabit({ habit_id, token });
+    if (resp.status === 204) {
+      toast.success("Deletado com Sucesso!");
+    } else {
+      toast.error("Erro ao tentar Deletar!");
+    }
+    loadHabits();
+  };
   useEffect(() => {
     loadHabits();
   }, []);
   return (
     <>
       <Container>
-        how_much_achieved
         <Header
           placeHolder="Buscar seus Hábitos..."
           variavel={searchInput}
@@ -88,6 +99,8 @@ export default function Habits() {
                     key={indice}
                     title={element.title}
                     description={element.difficulty}
+                    callback={handleDelete}
+                    param={element.id}
                   />
                 ))}
             </div>
