@@ -11,7 +11,7 @@ export const ContainerNav = styled.ul`
   justify-content: center;
   li {
     /* flex-basis: 50%; */
-    font-family: "Red Hat Text";
+    font-family: "Red Hat Text", sans-serif;
     font-weight: 600;
     color: var(--color-cinzaEscuro);
     padding: 10px 10px;
