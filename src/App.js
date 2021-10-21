@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Login />
+      {/* <Login /> */}
       <br />
       <br />
       <Habits />
