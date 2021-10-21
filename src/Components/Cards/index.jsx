@@ -4,13 +4,15 @@ import { ContainerCard, H1, P } from "./style.js";
 function Cards({
   title = "Title",
   description = "Description",
-  button,
-  callback,
+  callbackClose,
+  callbackEdit,
   param,
+  data,
 }) {
   return (
     <ContainerCard>
-      <Close param={param} callback={callback} />
+      <Close edit param={param} callback={() => callbackEdit(data)} />
+      <Close delet param={param} callback={() => callbackClose(data.id)} />
       <H1>{title}</H1>
       <P>{description}</P>
     </ContainerCard>

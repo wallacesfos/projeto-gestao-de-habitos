@@ -1,4 +1,4 @@
-import { Container, Main, Section } from "./style.js";
+import { Container, Main, ContainerModal, Section } from "./style.js";
 import Header from "../../../Components/HeaderDashboard";
 import ButtonAdd from "../../../Components/ButtonAdd/index.jsx";
 import Cards from "../../../Components/Cards/index.jsx";
@@ -7,11 +7,14 @@ import { useEffect, useState } from "react";
 import {
   createHabit,
   deleteHabit,
+  updateHabit,
 } from "../../../Utils/endpoints/habits/index.js";
 import { useContext } from "react";
 import { HabitsContext } from "../../../Providers/Habits";
 import FormAddHabits from "../../../Components/FormAddHabits";
 import { toast } from "react-toastify";
+import Close from "../../../Components/Close/index.jsx";
+import jwtDecode from "jwt-decode";
 export default function Habits() {
   const { loadHabits, habits, setHabits } = useContext(HabitsContext);
   const [isVisible, setIsVisible] = useState(false);
@@ -24,9 +27,18 @@ export default function Habits() {
   const [frequencyHabit, setFrequencyHabit] = useState("");
   const [achievedHabit, setAchieved] = useState(false);
   const [howMuchAchievedHabit, setHowMuchAchievedHabit] = useState(0);
-  const [useHabit, setUserHabit] = useState(0);
+  const [idHabit, setIdHabit] = useState(0);
   const [searchInput, setSearchInput] = useState("");
   const token = JSON.parse(localStorage.getItem("@token"));
+  const [user, setUser] = useState(0);
+  const { user_id } = jwtDecode(token);
+  const resetInputsHabits = () => {
+    setTitleHabit("");
+    setCategoryHabit("");
+    setDifficultyHabit("");
+    setFrequencyHabit("");
+    setIdHabit(0);
+  };
   const handleAddHabits = async () => {
     const body = {
       title: titleHabit,
@@ -35,7 +47,7 @@ export default function Habits() {
       frequency: frequencyHabit,
       achieved: achievedHabit,
       how_much_achieved: 30,
-      user: 289,
+      user: user_id,
     };
     const resp = await createHabit({ body, token });
     if (resp.status === 201) {
@@ -44,6 +56,7 @@ export default function Habits() {
       toast.error("Erro ao tentar adicionar!");
     }
     loadHabits();
+    resetInputsHabits();
   };
   const handleSearch = () => {
     if (searchInput !== "") {
@@ -59,6 +72,33 @@ export default function Habits() {
     } else {
       toast.error("Erro ao tentar Deletar!");
     }
+    loadHabits();
+  };
+  const [isModal, setIsModal] = useState(false);
+  const handleIsModal = (data) => {
+    if (!isModal) {
+      setTitleHabit(data.title);
+      setCategoryHabit(data.category);
+      setDifficultyHabit(data.difficulty);
+      setFrequencyHabit(data.frequency);
+      setIdHabit(data.id);
+    }
+    setIsModal(!isModal);
+  };
+  const handleUpdateHabits = async () => {
+    const body = {
+      title: titleHabit,
+      category: categoryHabit,
+      difficulty: difficultyHabit,
+      frequency: frequencyHabit,
+    };
+    const resp = await updateHabit({ habit_id: idHabit, body, token });
+    if (resp.status === 200) {
+      toast.success("Atualizado com Sucesso!");
+    } else {
+      toast.error("Erro ao tentar Atualziar!");
+    }
+    resetInputsHabits();
     loadHabits();
   };
   useEffect(() => {
@@ -89,6 +129,8 @@ export default function Habits() {
                   setDifficultyHabit={setDifficultyHabit}
                   frequencyHabit={frequencyHabit}
                   setFrequencyHabit={setFrequencyHabit}
+                  isUpdate
+                  value="Cadastrar"
                 />
               )}
             </div>
@@ -99,10 +141,32 @@ export default function Habits() {
                     key={indice}
                     title={element.title}
                     description={element.difficulty}
-                    callback={handleDelete}
+                    callbackClose={handleDelete}
+                    callbackEdit={handleIsModal}
                     param={element.id}
+                    data={element}
                   />
                 ))}
+              {isModal && (
+                <ContainerModal>
+                  <Close delet callback={() => handleIsModal()} />
+                  <div className="Modal">
+                    <FormAddHabits
+                      callback={handleUpdateHabits}
+                      titleHabit={titleHabit}
+                      setTitleHabit={setTitleHabit}
+                      categoryHabit={categoryHabit}
+                      setCategoryHabit={setCategoryHabit}
+                      difficultyHabit={difficultyHabit}
+                      setDifficultyHabit={setDifficultyHabit}
+                      frequencyHabit={frequencyHabit}
+                      setFrequencyHabit={setFrequencyHabit}
+                      isUpdate
+                      value="Atualizar"
+                    />
+                  </div>
+                </ContainerModal>
+              )}
             </div>
           </Section>
         </Main>
