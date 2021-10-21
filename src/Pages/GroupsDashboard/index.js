@@ -10,13 +10,14 @@ import {
   getSubscriptions,
   subscribeToGroup,
   unsubscribeFromGroup,
+  createGroup,
 } from "../../Utils/endpoints/groups";
 import useSubGroup from "../../Providers/currentGroupsProvider";
 const token = JSON.parse(localStorage.getItem("@Quero_token"));
 
 export const GroupsDashboard = () => {
   const [newGroups, setNewGroups] = useState(false);
-  const { currentGroups, updateCurrentGroups, setCurrentGroups } = useGroup();
+  const { currentGroups, updateCurrentGroups } = useGroup();
   const { currentSubs, updateCurrentSubs, setCurrentSubs } = useSubGroup();
 
   const showPopUp = () => {
@@ -28,6 +29,12 @@ export const GroupsDashboard = () => {
       .then((res) => setCurrentSubs(res.data))
       .catch((err) => console.log(err));
   }, []);
+
+  const createNewGroup = async (body) => {
+    await createGroup({ body, token: token });
+    updateCurrentGroups();
+    updateCurrentSubs();
+  };
 
   const joinGroup = async (currentId) => {
     const id = currentId;
@@ -70,7 +77,7 @@ export const GroupsDashboard = () => {
         ))}
         <NewCard callback={showPopUp} />
       </CardsContainer>
-      {newGroups === true && <PopUpNewGroup />}
+      {newGroups === true && <PopUpNewGroup callback={createNewGroup} />}
       <h1 style={{ marginBottom: 30 }}>Todos os Grupos</h1>
       <SearchContainer>
         <Search placeHolder="Digite o nome do grupo que deseja" />

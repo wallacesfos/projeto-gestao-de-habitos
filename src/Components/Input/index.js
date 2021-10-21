@@ -1,12 +1,11 @@
 import { StyledTextField } from "./styles";
 
-export const NewInput = ({ placeholder, height, width }) => {
+export const NewInput = ({ placeholder, height, width, ...rest }) => {
   return (
     <StyledTextField
+      {...rest}
       variant="outlined"
-      placeholder={placeholder}
-      height={height}
-      width={width}
+      {...{ placeholder, height, width }}
     />
   );
 };
