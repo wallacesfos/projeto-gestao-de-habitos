@@ -20,16 +20,13 @@ const ActivitiesSection = ({ activities }) => {
     resetCurrentActivity,
   } = useActivity();
 
-  console.log(currentActivity);
-
   const deleteToast = () => {
     toast.success("Meta deletada!");
   };
 
-  const handleCreate = async () => {
+  const handleCreate = async (data) => {
     const body = {
-      title: "Estudar Material-UI loucamente",
-      realization_time: "2021-03-10T15:00:00Z",
+      ...data,
       group: currentGroup.id,
     };
 

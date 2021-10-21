@@ -17,11 +17,9 @@ const GoalsSection = ({ goals }) => {
     toast.success("Meta deletada!");
   };
 
-  const handleCreate = async () => {
+  const handleCreate = async (data) => {
     const body = {
-      title: "Estudar Material-UI loucamente",
-      difficulty: "médio",
-      how_much_achieved: 0,
+      ...data,
       group: currentGroup.id,
     };
 
