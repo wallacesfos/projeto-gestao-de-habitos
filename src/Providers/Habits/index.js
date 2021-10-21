@@ -8,7 +8,7 @@ export const HabitsProvider = ({ children }) => {
 
   const loadHabits = async () => {
     //   JSON.parse(localStorage.getItem("@Doit:token")) JSON.stringify(token)
-    const token = JSON.parse(localStorage.getItem("@token"));
+    const token = JSON.parse(localStorage.getItem("@Quero_token"));
     const resp = await getHabits(token);
     setHabits(resp.data);
   };

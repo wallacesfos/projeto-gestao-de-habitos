@@ -29,7 +29,7 @@ export default function Habits() {
   const [howMuchAchievedHabit, setHowMuchAchievedHabit] = useState(0);
   const [idHabit, setIdHabit] = useState(0);
   const [searchInput, setSearchInput] = useState("");
-  const token = JSON.parse(localStorage.getItem("@token"));
+  const token = JSON.parse(localStorage.getItem("@Quero_token"));
   const [user, setUser] = useState(0);
   const { user_id } = jwtDecode(token);
   const resetInputsHabits = () => {
