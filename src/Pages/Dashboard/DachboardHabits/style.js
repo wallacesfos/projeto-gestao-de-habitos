@@ -25,7 +25,9 @@ export const Section = styled.div`
   .Section-ButtonAdd {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 10px 0px;
+    flex-direction: column;
   }
   .Section-Cards {
     display: flex;
