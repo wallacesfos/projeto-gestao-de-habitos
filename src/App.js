@@ -1,6 +1,4 @@
-import Register from "./Components/Register";
 import Routes from "./Routes/";
-
 import { GlobalStyle } from "./Utils/globalStyle.js";
 import { GroupsDashboard } from "./Pages/GroupsDashboard/index.js";
 

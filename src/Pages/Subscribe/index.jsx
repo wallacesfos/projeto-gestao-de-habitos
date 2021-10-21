@@ -1,4 +1,5 @@
 import Nav from "../../Components/Nav";
+import Register from "../../Components/Register";
 import logo from "../../Utils/Assets/logo.png";
 import login from "../../Utils/Assets/login.svg";
 import {
@@ -21,11 +22,14 @@ export default function Subscribe() {
           </div>
         </ContainerNav>
         <Section>
-          <div>
+          <div className="Section-col">
             <img src={login} alt="Lendo um resumo da Quero!" />
           </div>
-          <div>
-            <div className="card">Cadastro</div>
+          <div className="Section-col">
+            <div>
+              {" "}
+              <Register />{" "}
+            </div>
           </div>
         </Section>
         <ContainerApp>

@@ -10,10 +10,8 @@ export const GroupProvider = ({ children }) => {
   const [currentGroups, setCurrentGroups] = useState([]);
 
   const getAllGroups = async () => {
-    let counter = 1;
-    const resp = await getGroups(counter);
-    setCurrentGroups(...currentGroups, resp.data.results);
-
+    const resp = await getGroups();
+    setCurrentGroups(resp.data.results);
     return resp;
   };
 

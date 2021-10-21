@@ -24,25 +24,25 @@ export default function Home() {
             <Nav />
           </div>
         </ContainerNav>
-        <Section>
-          <div>
+        <Section home>
+          <div className="Section-col">
             <img src={svg1} alt="Lendo um resumo da Quero!" />
           </div>
-          <div>
+          <div className="Section-col">
             <div className="card">
               A Quero! é uma plataforma de organização e aprendizado para novos
               habitos ou aprimoramendo deles.
             </div>
           </div>
         </Section>
-        <Section className="column-reverse">
-          <div>
+        <Section home className="column-reverse">
+          <div className="Section-col">
             <div className="card">
               Na Quero! Você anota seus habitos com praticidade e participa de
               grupos desses habitos ou de conteúdos relacionados.
             </div>
           </div>
-          <div>
+          <div className="Section-col">
             <img src={svg2} alt="Lendo um resumo da Quero!" />
           </div>
         </Section>

@@ -5,7 +5,6 @@ import Login from "./../Pages/Login";
 import Subscribe from "../Pages/Subscribe";
 // import GroupPage from "../Pages/GroupPage";
 import { GroupsDashboard } from "../Pages/GroupsDashboard";
-import Register from "../Components/Register";
 const Routes = () => (
   <Switch>
     <Route exact path="/" component={Home} />

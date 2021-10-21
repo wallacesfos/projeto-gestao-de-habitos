@@ -28,7 +28,7 @@ export const GroupsDashboard = () => {
     getSubscriptions(token)
       .then((res) => setCurrentSubs(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, []); // eslint-disable-line
 
   const createNewGroup = async (body) => {
     await createGroup({ body, token: token });
@@ -42,17 +42,17 @@ export const GroupsDashboard = () => {
     await subscribeToGroup({
       group_id: id,
       token: token,
-    })
-      .then(updateCurrentSubs)
-      .then(updateCurrentGroups);
+    });
+    updateCurrentSubs();
+    updateCurrentGroups();
   };
 
   const leaveGroup = async (currentId) => {
     const id = currentId;
     const token = JSON.parse(localStorage.getItem("@Quero_token"));
-    await unsubscribeFromGroup({ group_id: id, token: token })
-      .then(updateCurrentSubs)
-      .then(updateCurrentGroups);
+    await unsubscribeFromGroup({ group_id: id, token: token });
+    updateCurrentSubs();
+    updateCurrentGroups();
   };
   return (
     <Container>
