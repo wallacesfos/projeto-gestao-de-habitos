@@ -1,5 +1,4 @@
 import { Container, Main, ContainerModal, Section } from "./style.js";
-import Header from "../../../Components/HeaderDashboard";
 import ButtonAdd from "../../../Components/ButtonAdd/index.jsx";
 import Cards from "../../../Components/Cards/index.jsx";
 import Footer from "../../../Components/Footer";
@@ -16,6 +15,7 @@ import FormAddHabits from "../../../Components/FormAddHabits";
 import { toast } from "react-toastify";
 import ClosePage from "../../../Components/ClosePage";
 import jwtDecode from "jwt-decode";
+import HeaderHabits from "../../../Components/HeaderHabits/index.jsx";
 export default function Habits() {
   const { loadHabits, habits, setHabits } = useContext(HabitsContext);
   const [isVisible, setIsVisible] = useState(false);
@@ -110,8 +110,7 @@ export default function Habits() {
   return (
     <>
       <Container>
-        <Header
-          showNav
+        <HeaderHabits
           placeHolder="Buscar seus Hábitos..."
           variavel={searchInput}
           setVariavel={setSearchInput}
