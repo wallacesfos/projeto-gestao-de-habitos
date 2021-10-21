@@ -4,7 +4,7 @@ import { AsideBar, Item } from "./style";
 const AsideMembers = ({ memberList }) => {
   return (
     <AsideBar>
-      <GroupCardSection variant="members">
+      <GroupCardSection notAddButton variant="members">
         <ul>
           {memberList.map(({ username, id }) => (
             <div key={id}>

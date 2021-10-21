@@ -1,3 +1,4 @@
+import jwtDecode from "jwt-decode";
 import { toast, ToastContainer } from "react-toastify";
 
 import useGoal from "../../Providers/GoalProvider";
@@ -8,8 +9,8 @@ import GroupCardSection from "../GroupSection";
 import { AsideBar, Item } from "./styles";
 
 const GoalsSection = ({ goals }) => {
-  const { currentGoal, updateCurrentGoal } = useGoal();
-  const { currentGroup, updateCurrentGroup } = useGroup();
+  const { currentGoal, updateCurrentGoal, updateGroupGoals } = useGoal();
+  const { currentGroup } = useGroup();
   const token = JSON.parse(localStorage.getItem("@Quero_token"));
 
   const deleteToast = () => {
@@ -30,7 +31,7 @@ const GoalsSection = ({ goals }) => {
       toast.success("Meta criada!");
     }
 
-    updateCurrentGroup();
+    updateGroupGoals();
   };
 
   return (

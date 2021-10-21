@@ -11,12 +11,11 @@ import {
 } from "./styles";
 import { deleteGoal, updateGoal } from "../../Utils/endpoints/goals";
 import useGoal from "../../Providers/GoalProvider";
-import { useGroup } from "../../Providers/GroupProvider";
 import ConfirmEventButton from "../ConfirmEventButton";
 
 const GoalPopupCard = ({ deleteToast }) => {
-  const { currentGoal, updateCurrentGoal, resetCurrentGoal } = useGoal();
-  const { updateCurrentGroup } = useGroup();
+  const { currentGoal, updateCurrentGoal, resetCurrentGoal, updateGroupGoals } =
+    useGoal();
 
   const { id, title, difficulty, achieved, how_much_achieved } = currentGoal;
 
@@ -43,7 +42,7 @@ const GoalPopupCard = ({ deleteToast }) => {
       deleteToast();
     }
 
-    updateCurrentGroup();
+    updateGroupGoals();
     updateCurrentGoal();
   };
   const handleDelete = async () => {
@@ -53,7 +52,7 @@ const GoalPopupCard = ({ deleteToast }) => {
       toast.success("Meta deletada!");
     }
 
-    updateCurrentGroup();
+    updateGroupGoals();
     resetCurrentGoal();
   };
 
