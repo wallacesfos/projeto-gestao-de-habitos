@@ -5,12 +5,12 @@ import Providers from "./Providers";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <Providers>
-    <React.StrictMode>
-      <BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Providers>
         <App />
-      </BrowserRouter>
-    </React.StrictMode>
-  </Providers>,
+      </Providers>
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById("root")
 );

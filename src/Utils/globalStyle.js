@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     body{
         background-color: var(--background);
+        font-family: "Red Hat Text", sans-serif;
     }
     body,div,main,section,ul,li,a,h1,h2,h3,h4,h5,h6{
         padding: 0;
