@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const AsideBar = styled.section`
   ul {
@@ -27,6 +27,12 @@ export const Item = styled.li`
   transition: transform 0.1s linear;
   &:hover {
     transform: scale(1.01);
+  }
+
+  .empty {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-placeHolder);
   }
 
   @media (min-width: 800px) {

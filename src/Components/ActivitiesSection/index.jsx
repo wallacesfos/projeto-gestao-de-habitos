@@ -44,6 +44,11 @@ const ActivitiesSection = ({ activities }) => {
       <ToastContainer />
       <GroupCardSection variant="activities" {...{ handleCreate }}>
         <ul>
+          {activities.length === 0 && (
+            <Item key="1">
+              <p className="empty">Vazio</p>
+            </Item>
+          )}
           {activities.map(({ id, title, realization_time }) => {
             const meses = [
               "janeiro",
