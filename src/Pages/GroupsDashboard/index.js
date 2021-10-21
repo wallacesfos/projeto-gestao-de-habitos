@@ -112,7 +112,8 @@ export const GroupsDashboard = () => {
             callbackClose={leaveGroup}
             description={subs.description}
             category={subs.category}
-            usersOnGroup={subs.users_on_group.length}
+            moreinfo
+            moreinfoPlaceholder="Mais informações"
             key={index}
             delet
             edit
@@ -131,16 +132,17 @@ export const GroupsDashboard = () => {
         />
       </SearchContainer>
       <CardsContainer>
-        {currentGroups2.map((groups) => (
+        {currentGroups2.map((groups, index) => (
           <Cards
             title={groups.name}
             description={groups.description}
             category={groups.category}
-            usersOnGroup={groups.users_on_group.length}
-            id={parseInt(groups.id)}
             callback={() => joinGroup(groups.id)}
             placeholder="Juntar-se"
             showButton
+            key={index}
+            moreinfo
+            moreinfoPlaceholder="Mais informações"
           />
         ))}
       </CardsContainer>
