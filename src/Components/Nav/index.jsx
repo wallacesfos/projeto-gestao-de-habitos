@@ -43,10 +43,21 @@ export default function Nav({ dashboard = false, footer = false }) {
       )}
       {dashboard && (
         <ContainerNav>
-          <li>Meu Perfil</li>
-          <li>Meus Hábitos</li>
-          <li>Suporte</li>
-          <li>Sair</li>
+          <li>
+            <Link to="/meu-perfil">Meu Perfil</Link>
+          </li>
+          <li>
+            <Link to="/group">Meus Grupos</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">Meus Hábitos</Link>
+          </li>
+          <li>
+            <Link to="/suporte">Suporte</Link>
+          </li>
+          <li>
+            <Link to="/sair">Sair</Link>
+          </li>
         </ContainerNav>
       )}
     </>
