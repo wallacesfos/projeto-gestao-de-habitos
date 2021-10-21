@@ -27,7 +27,15 @@ const ConfirmEventButton = ({
       )}
       {activeMode && (
         <ConfirmBox>
-          <Button onClick={handleClick}> Confirmar </Button>
+          <Button
+            onClick={() => {
+              handleClick();
+              setActiveMode(false);
+            }}
+          >
+            {" "}
+            Confirmar{" "}
+          </Button>
           <Button
             cancelButton
             onClick={() => setTimeout(() => setActiveMode(false), 200)}
