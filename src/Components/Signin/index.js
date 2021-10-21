@@ -9,8 +9,7 @@ import { LoginSchema } from "../Yup";
 import { useHistory } from "react-router-dom";
 
 export default function SignIn() {
-  
-  const history = useHistory()
+  const history = useHistory();
 
   const {
     register,
