@@ -40,4 +40,21 @@ export const Item = styled.li`
       transform: scale(0.99);
     }
   }
+
+  @media (min-width: 1024px) {
+    width: 250px;
+  }
+`;
+
+export const ItemEmpty = styled.div`
+  text-align: center;
+  margin: 10px auto;
+
+  width: 95%;
+
+  .empty {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-placeHolder);
+  }
 `;

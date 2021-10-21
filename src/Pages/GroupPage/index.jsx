@@ -7,6 +7,7 @@ import ConfirmEventButton from "../../Components/ConfirmEventButton";
 import Footer from "../../Components/Footer";
 import GoalsSection from "../../Components/GoalsSection";
 import Header from "../../Components/HeaderDashboard";
+import Nav from "../../Components/Nav";
 import useActivity from "../../Providers/ActivitiesProvider";
 import useGoal from "../../Providers/GoalProvider";
 import { useGroup } from "../../Providers/GroupProvider";
@@ -14,7 +15,9 @@ import {
   subscribeToGroup,
   unsubscribeFromGroup,
 } from "../../Utils/endpoints/groups";
-import { HeaderBox, Container } from "./styles";
+import { HeaderBox, Container, SectonBox, BoxMain } from "./styles";
+import logo from "./../../Utils/Assets/logo.png";
+import GenericHeader from "../../Components/GenericHeader";
 
 const GroupPage = () => {
   const { currentGroup, updateCurrentGroup } = useGroup();
@@ -63,9 +66,9 @@ const GroupPage = () => {
   return (
     <Container>
       <ToastContainer />
-      <Header />
+      <GenericHeader />
 
-      <section>
+      <SectonBox>
         <HeaderBox>
           <h2> {name} </h2>
           <p>{description}</p>
@@ -75,12 +78,16 @@ const GroupPage = () => {
             {...props}
           />
         </HeaderBox>
-        <main>
-          <AsideMembers {...{ memberList }} />
-          <GoalsSection {...{ goals: groupGoals }} />
-          <ActivitiesSection {...{ activities: groupActivities }} />
-        </main>
-      </section>
+        <BoxMain>
+          <div>
+            <AsideMembers {...{ memberList }} />
+          </div>
+          <div className="rightSection">
+            <GoalsSection {...{ goals: groupGoals }} />
+            <ActivitiesSection {...{ activities: groupActivities }} />
+          </div>
+        </BoxMain>
+      </SectonBox>
       <Footer />
     </Container>
   );
