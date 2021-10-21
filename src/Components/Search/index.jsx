@@ -15,6 +15,8 @@ export default function Search({
           id="outlined-basic"
           label={placeHolder}
           variant="outlined"
+          value={variavel}
+          onChange={(e) => setVariavel(e.target.value)}
         />
       </div>
       <div className="Col-button">

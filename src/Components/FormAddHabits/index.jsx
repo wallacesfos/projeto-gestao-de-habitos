@@ -12,6 +12,7 @@ export default function FormAddHabits({
   setDifficultyHabit,
   frequencyHabit,
   setFrequencyHabit,
+  value = "button",
 }) {
   return (
     <Container>
@@ -72,7 +73,7 @@ export default function FormAddHabits({
       </li>
       <li>
         <button onClick={() => callback(param)} className="btn-primary">
-          Cadastrar
+          {value}
         </button>
       </li>
     </Container>
