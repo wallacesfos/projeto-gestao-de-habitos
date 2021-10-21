@@ -1,13 +1,8 @@
 import { TextField } from "@material-ui/core";
 import { Link } from "react-router-dom";
-// import { Out } from "../Out/index.jsx";
 import { ContainerNav, Newsletter } from "./style.js";
 import { useHistory } from "react-router-dom";
 export default function Nav({ dashboard = false, footer = false }) {
-  //props boleanas dashboard e footer
-  //menu padrao da pagina home com cadastre-se
-  //menu props footer para o navbar footer
-  //menuprops dashboard para menu dodashboard
   const history = useHistory();
   const Out = () => {
     localStorage.clear();
@@ -51,17 +46,12 @@ export default function Nav({ dashboard = false, footer = false }) {
       )}
       {dashboard && (
         <ContainerNav>
+          <li>Meu Perfil</li>
           <li>
-            <Link to="/meu-perfil">Meu Perfil</Link>
-          </li>
-          <li>
-            <Link to="/group">Meus Grupos</Link>
+            <Link to="/group-dashboard">Meus Grupos</Link>
           </li>
           <li>
             <Link to="/dashboard">Meus Hábitos</Link>
-          </li>
-          <li>
-            <Link to="/suporte">Suporte</Link>
           </li>
           <li>
             <button onClick={() => Out()} className="ButtonOut">

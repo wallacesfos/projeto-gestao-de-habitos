@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
         --black: #000000;
     }
     body{
+        @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap');
         background-color: var(--background);
         font-family: "Red Hat Text", sans-serif;
     }
