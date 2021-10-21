@@ -31,6 +31,7 @@ export const Title = styled.h2`
 
 export const Login = styled.span`
     color: #FF6400;
+    cursor: pointer;
 `
 
 export const Block = styled.div`
