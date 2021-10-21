@@ -25,6 +25,7 @@ export default function Register() {
     };
 
     const resp = await createAcount(formData);
+    console.log(resp);
 
     if (resp.status === 400) {
       toast.error("Usuário já existe");
@@ -110,6 +111,5 @@ export default function Register() {
         <p>Já é cadastrado? <Login onClick={() => history.push('/login')}>Faça login</Login></p>
       </Cadastre>
     </Form>
-    // </FlexContainer>
   );
 }

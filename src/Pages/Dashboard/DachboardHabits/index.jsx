@@ -111,6 +111,7 @@ export default function Habits() {
     <>
       <Container>
         <Header
+          showNav
           placeHolder="Buscar seus Hábitos..."
           variavel={searchInput}
           setVariavel={setSearchInput}
