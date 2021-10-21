@@ -10,7 +10,7 @@ import { HabitsContext } from "../../../Providers/Habits";
 import FormAddHabits from "../../../Components/FormAddHabits";
 import { toast } from "react-toastify";
 export default function Habits() {
-  const { loadHabits, habits } = useContext(HabitsContext);
+  const { loadHabits, habits, setHabits } = useContext(HabitsContext);
   const [isVisible, setIsVisible] = useState(false);
   const isFormAddHabits = () => {
     setIsVisible(!isVisible);
@@ -22,6 +22,7 @@ export default function Habits() {
   const [achievedHabit, setAchieved] = useState(false);
   const [howMuchAchievedHabit, setHowMuchAchievedHabit] = useState(0);
   const [useHabit, setUserHabit] = useState(0);
+  const [searchInput, setSearchInput] = useState("");
   const handleAddHabits = async () => {
     const token = JSON.parse(localStorage.getItem("@token"));
     const body = {
@@ -41,6 +42,9 @@ export default function Habits() {
     }
     loadHabits();
   };
+  const handleSearch = () => {
+    setHabits(habits.filter((element) => element.title === searchInput));
+  };
   useEffect(() => {
     loadHabits();
   }, []);
@@ -48,7 +52,12 @@ export default function Habits() {
     <>
       <Container>
         how_much_achieved
-        <Header placeHolder="Buscar seus Hábitos..." />
+        <Header
+          placeHolder="Buscar seus Hábitos..."
+          variavel={searchInput}
+          setVariavel={setSearchInput}
+          callback={handleSearch}
+        />
         <Main>
           <Section>
             <h1>Hábitos</h1>

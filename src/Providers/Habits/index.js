@@ -13,7 +13,7 @@ export const HabitsProvider = ({ children }) => {
     setHabits(resp.data);
   };
   return (
-    <HabitsContext.Provider value={{ loadHabits, habits }}>
+    <HabitsContext.Provider value={{ loadHabits, habits, setHabits }}>
       {children}
     </HabitsContext.Provider>
   );
