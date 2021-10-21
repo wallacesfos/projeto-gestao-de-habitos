@@ -6,6 +6,7 @@ import { Container, CardsContainer, SearchContainer } from "./styles";
 import Search from "../../Components/Search";
 import { useEffect, useState } from "react";
 import useGroup from "../../Providers/groupsProvider";
+import { toast, ToastContainer } from "react-toastify";
 import {
   getSubscriptions,
   subscribeToGroup,
@@ -13,6 +14,7 @@ import {
   createGroup,
 } from "../../Utils/endpoints/groups";
 import useSubGroup from "../../Providers/currentGroupsProvider";
+import { render } from "@testing-library/react";
 const token = JSON.parse(localStorage.getItem("@Quero_token"));
 
 export const GroupsDashboard = () => {
@@ -31,28 +33,46 @@ export const GroupsDashboard = () => {
   }, []); // eslint-disable-line
 
   const createNewGroup = async (body) => {
-    await createGroup({ body, token: token });
-    updateCurrentGroups();
-    updateCurrentSubs();
-  };
-
-  const joinGroup = async (currentId) => {
-    const id = currentId;
-    const token = JSON.parse(localStorage.getItem("@Quero_token"));
-    await subscribeToGroup({
-      group_id: id,
-      token: token,
+    await createGroup({ body, token: token }).then((res) => {
+      if (res.status === 400) toast.error("Preencha todos os campos");
     });
     updateCurrentSubs();
     updateCurrentGroups();
   };
 
+  const joinGroup = async (currentId) => {
+    const id = currentId;
+    const token = JSON.parse(localStorage.getItem("@Quero_token"));
+    toast
+      .promise(
+        subscribeToGroup({
+          group_id: id,
+          token: token,
+        }).then(() => updateCurrentSubs()),
+        {
+          pending: "Carregando",
+          error: "Ocorreu algum erro",
+          success: "Você se juntou com sucesso",
+        }
+      )
+      .then(() => updateCurrentGroups());
+  };
+
   const leaveGroup = async (currentId) => {
     const id = currentId;
     const token = JSON.parse(localStorage.getItem("@Quero_token"));
-    await unsubscribeFromGroup({ group_id: id, token: token });
-    updateCurrentSubs();
-    updateCurrentGroups();
+    toast
+      .promise(
+        unsubscribeFromGroup({ group_id: id, token: token }).then(() =>
+          updateCurrentSubs()
+        ),
+        {
+          pending: "Carregando",
+          success: "Você saiu com sucesso",
+          error: "Aconteceu algum erro, tente novamente",
+        }
+      )
+      .then(() => updateCurrentGroups());
   };
   return (
     <Container>
