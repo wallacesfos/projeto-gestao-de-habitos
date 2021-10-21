@@ -1,7 +1,7 @@
 import { TextField, Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FlexContainer, Form, Title, Login, Block, Cadastre } from "./style";
+import { Form, Title, Login, Block, Cadastre } from "./style";
 import { Schema } from "../Yup";
 import { createAcount } from "../../Utils/endpoints/user";
 import { ToastContainer, toast } from "react-toastify";
@@ -34,82 +34,78 @@ export default function Register() {
   };
 
   return (
-    <>
-      <FlexContainer>
-        <ToastContainer />
-        <Form className="formRegister" onSubmit={handleSubmit(handleForm)}>
-          <Title>Registre-se</Title>
-          <div className="divTexts">
-            <TextField
-              id="outlined-required"
-              variant="outlined"
-              size="small"
-              color="primary"
-              margin="normal"
-              label="Usuário"
-              {...register("name")}
-              error={!!errors.name}
-              helperText={errors.name?.message}
-              className="inputField"
-            />
-          </div>
+    <Form className="formRegister" onSubmit={handleSubmit(handleForm)}>
+      <ToastContainer />
+      <Title>Registre-se</Title>
+      <div className="divTexts">
+        <TextField
+          id="outlined-required"
+          variant="outlined"
+          size="small"
+          color="primary"
+          margin="normal"
+          label="Usuário"
+          {...register("name")}
+          error={!!errors.name}
+          helperText={errors.name?.message}
+          className="inputField"
+        />
+      </div>
 
-          <div className="divTexts">
-            <TextField
-              id="outlined-required"
-              variant="outlined"
-              size="small"
-              color="primary"
-              margin="normal"
-              label="Email"
-              {...register("email")}
-              error={!!errors.email}
-              helperText={errors.email?.message}
-              className="inputField"
-            />
-          </div>
+      <div className="divTexts">
+        <TextField
+          id="outlined-required"
+          variant="outlined"
+          size="small"
+          color="primary"
+          margin="normal"
+          label="Email"
+          {...register("email")}
+          error={!!errors.email}
+          helperText={errors.email?.message}
+          className="inputField"
+        />
+      </div>
 
-          <div className="divTexts">
-            <TextField
-              id="outlined-required"
-              variant="outlined"
-              size="small"
-              color="primary"
-              margin="normal"
-              label="Senha"
-              type="password"
-              {...register("password")}
-              error={!!errors.password}
-              helperText={errors.password?.message}
-              className="inputField"
-            />
-          </div>
-          <div className="divTexts">
-            <TextField
-              id="outlined-required"
-              variant="outlined"
-              size="small"
-              color="primary"
-              margin="normal"
-              label="Confirme senha"
-              type="password"
-              {...register("passwordConfirmation")}
-              error={!!errors.passwordConfirmation}
-              helperText={errors.passwordConfirmation?.message}
-              className="inputField"
-            />
-          </div>
+      <div className="divTexts">
+        <TextField
+          id="outlined-required"
+          variant="outlined"
+          size="small"
+          color="primary"
+          margin="normal"
+          label="Senha"
+          type="password"
+          {...register("password")}
+          error={!!errors.password}
+          helperText={errors.password?.message}
+          className="inputField"
+        />
+      </div>
+      <div className="divTexts">
+        <TextField
+          id="outlined-required"
+          variant="outlined"
+          size="small"
+          color="primary"
+          margin="normal"
+          label="Confirme senha"
+          type="password"
+          {...register("passwordConfirmation")}
+          error={!!errors.passwordConfirmation}
+          helperText={errors.passwordConfirmation?.message}
+          className="inputField"
+        />
+      </div>
 
-          <Block>
-            <Button className="btn-primary" type="Submit" variant="contained">
-              Cadastrar
-            </Button>
-          </Block>
-          <Cadastre className="text-login">
-            Já é cadastrado? <Login>Faça login</Login>
-          </Cadastre>
-        </Form>
-      </FlexContainer>
-    </>
+      <Block>
+        <Button className="btn-primary" type="Submit" variant="contained">
+          Cadastrar
+        </Button>
+      </Block>
+      <Cadastre className="text-login">
+        Já é cadastrado? <Login>Faça login</Login>
+      </Cadastre>
+    </Form>
   );
 }

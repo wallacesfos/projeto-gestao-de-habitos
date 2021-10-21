@@ -10,6 +10,8 @@ export default function Header({
   showNav,
   showLeftCol,
   resetFunction,
+  variavel,
+  setVariavel,
 }) {
   return (
     <Container>
@@ -19,12 +21,12 @@ export default function Header({
         </div>
       )}
       <div className="col-right">
-        {showNav && <Nav dashboard />}
+        <Nav dashboard />
         <Search
-          placeHolder={placeHolder}
           callback={callback}
-          resetFunction={resetFunction}
-          param
+          placeHolder={placeHolder}
+          variavel={variavel}
+          setVariavel={setVariavel}
         />
       </div>
     </Container>

@@ -9,8 +9,7 @@ import { LoginSchema } from "../Yup";
 import { useHistory } from "react-router-dom";
 
 export default function SignIn() {
-  
-  const history = useHistory()
+  const history = useHistory();
 
   const {
     register,
@@ -31,7 +30,7 @@ export default function SignIn() {
 
     if (resp.status === 200) {
       localStorage.clear();
-      localStorage.setItem("@token", JSON.stringify(resp.data.access));
+      localStorage.setItem("@Quero_token", JSON.stringify(resp.data.access));
       history.push('/dashboard');
     }
   };

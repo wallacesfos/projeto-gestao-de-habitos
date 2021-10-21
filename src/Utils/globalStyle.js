@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     body{
         background-color: var(--background);
+        font-family: "Red Hat Text", sans-serif;
     }
     body,div,main,section,ul,li,a,h1,h2,h3,h4,h5,h6{
         padding: 0;
@@ -57,6 +58,26 @@ export const GlobalStyle = createGlobalStyle`
 
     .divTexts div div{
         border-radius: 150px;
+    }
+
+    .margin-left-input{
+        margin-left: 7px !important;
+    }
+
+    .margin-right-input{
+        margin-right: 7px !important;
+    }
+
+    .mini{
+        width: 150px;
+    }
+
+    .MuiFormControl-root{
+        border-radius: 20px;
+    }
+
+    .MuiFormControl-root div{
+        border-radius: 20px;
     }
 
 `;

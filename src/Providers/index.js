@@ -1,11 +1,20 @@
 import { GroupProvider } from "./groupsProvider";
 import { SubsProvider } from "./currentGroupsProvider";
-const GlobalProvider = ({ children }) => {
+import { HabitsProvider } from "./Habits";
+import { GoalProvider } from "./GoalProvider";
+import { ActivitiesProvider } from "./ActivitiesProvider";
+
+const Providers = ({ children }) => {
   return (
     <GroupProvider>
-      <SubsProvider>{children}</SubsProvider>
+      <ActivitiesProvider>
+        <GoalProvider>
+          <SubsProvider>
+            <HabitsProvider>{children}</HabitsProvider>;
+          </SubsProvider>
+        </GoalProvider>
+      </ActivitiesProvider>
     </GroupProvider>
   );
 };
-
-export default GlobalProvider;
+export default Providers;

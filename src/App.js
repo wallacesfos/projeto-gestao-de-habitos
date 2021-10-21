@@ -1,7 +1,7 @@
-import Routes from "./Routes/";
 import { GlobalStyle } from "./Utils/globalStyle.js";
 import { GroupsDashboard } from "./Pages/GroupsDashboard/index.js";
 import { ToastContainer } from "react-toastify";
+import Routes from "./Routes";
 
 function App() {
   return (
@@ -26,5 +26,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
