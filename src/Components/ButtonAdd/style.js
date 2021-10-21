@@ -7,6 +7,7 @@ export const ButtonNew = styled.button`
   width: 150px;
   height: 150px;
   border: none;
+  cursor: pointer;
 `;
 export const Container = styled.div`
   width: 100%;
