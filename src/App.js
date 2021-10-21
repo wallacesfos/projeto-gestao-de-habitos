@@ -1,5 +1,5 @@
-import Routes from "./Routes/";
 import { GlobalStyle } from "./Utils/globalStyle.js";
+import Routes from './Routes'
 
 function App() {
   return (
@@ -9,5 +9,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
