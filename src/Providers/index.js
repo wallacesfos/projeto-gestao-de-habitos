@@ -12,16 +12,11 @@ const Providers = ({ children }) => {
         <ActivitiesProvider>
           <GoalProvider>
             <SubsProvider>
-              <HabitsProvider>{children}</HabitsProvider>;
+              <HabitsProvider>{children}</HabitsProvider>
             </SubsProvider>
           </GoalProvider>
         </ActivitiesProvider>
       </GroupProvider2>
-      {/* <ActivitiesProvider>
-        <GoalProvider>
-          <HabitsProvider>{children}</HabitsProvider>
-        </GoalProvider>
-      </ActivitiesProvider> */}
     </GroupProvider>
   );
 };
