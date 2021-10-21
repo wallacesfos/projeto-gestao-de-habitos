@@ -41,3 +41,16 @@ export const Item = styled.li`
     }
   }
 `;
+
+export const ItemEmpty = styled.div`
+  text-align: center;
+  margin: 10px auto;
+
+  width: 95%;
+
+  .empty {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-placeHolder);
+  }
+`;

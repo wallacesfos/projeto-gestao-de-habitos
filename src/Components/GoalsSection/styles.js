@@ -57,12 +57,6 @@ export const Item = styled.li`
     }
   }
 
-  .empty {
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--color-placeHolder);
-  }
-
   cursor: pointer;
   transition: transform 0.1s linear;
   &:hover {
@@ -73,5 +67,18 @@ export const Item = styled.li`
     &:active {
       transform: scale(0.99);
     }
+  }
+`;
+
+export const ItemEmpty = styled.div`
+  text-align: center;
+  margin: 10px auto;
+
+  width: 95%;
+
+  .empty {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-placeHolder);
   }
 `;

@@ -36,6 +36,7 @@ export const SectionBox = styled.div`
     .AddButton {
       height: 40px;
       width: 40px;
+      cursor: pointer;
 
       color: ${({ color }) => color};
       filter: brightness(0.6);
