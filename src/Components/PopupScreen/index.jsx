@@ -25,12 +25,16 @@ import {
   subscribeToGroup,
   unsubscribeFromGroup,
 } from "../../Utils/endpoints/groups";
+import { useGroup } from "../../Providers/GroupProvider";
 
-const PopupScreen = ({ group, setCloseState }) => {
+const PopupScreen = ({ setCloseState }) => {
   const { push: goTo } = useHistory();
 
+  const { currentGroup, updateCurrentGroup, userIsOnGroup, validUser } =
+    useGroup();
+
   const { id, name, description, users_on_group, goals, activities, category } =
-    group;
+    currentGroup;
 
   const groupCategory = groupCategories.find(({ name }) =>
     stringNormalizer(category).includes(stringNormalizer(name))
@@ -56,11 +60,18 @@ const PopupScreen = ({ group, setCloseState }) => {
 
   const handleSubscribe = () => {
     if (alreadyOnGroup) {
-      unsubscribeFromGroup(args)
+      const { status } = unsubscribeFromGroup(args)
         .then((resp) => {
           toast.success("Inscrição cancelada");
         })
         .catch((err) => console.log(err));
+
+      if (status === 200) {
+        toast.success("Inscrição cancelada");
+      }
+      if (status >= 500) {
+        toast.warn("Inscrição cancelada");
+      }
     }
 
     if (!alreadyOnGroup) {
