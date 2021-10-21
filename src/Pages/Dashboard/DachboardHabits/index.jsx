@@ -116,6 +116,8 @@ export default function Habits() {
           variavel={searchInput}
           setVariavel={setSearchInput}
           callback={handleSearch}
+          showLeftCol
+          showLogo
         />
         <Main>
           <Section>
