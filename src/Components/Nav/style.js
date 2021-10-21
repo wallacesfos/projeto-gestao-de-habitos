@@ -7,6 +7,7 @@ export const ContainerNav = styled.ul`
   display: flex;
   flex-wrap: wrap;
   margin: 10px 0px;
+  font-size: 1.2rem;
   justify-content: center;
   li {
     /* flex-basis: 50%; */
@@ -36,6 +37,7 @@ export const ContainerNav = styled.ul`
     border: none;
     font-family: "Red Hat Text";
     font-weight: 600;
+    font-size: 1.2rem;
     color: var(--color-cinzaEscuro);
     cursor: pointer;
     :hover {
