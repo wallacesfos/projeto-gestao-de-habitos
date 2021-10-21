@@ -18,7 +18,7 @@ const Search = ({
           id="outlined-basic"
           label={placeHolder}
           variant="outlined"
-          value={input}
+          value={variavel}
           onChange={(e) => {
             // setVariavel(e.target.value);
             setInput(e.target.value);

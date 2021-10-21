@@ -5,7 +5,6 @@ function Cards({
   title = "Title",
   description = "Description",
   category = "Category",
-  usersOnGroup = 0,
   id,
   callback,
   placeholder,
@@ -16,6 +15,8 @@ function Cards({
   edit,
   delet,
   showButton,
+  moreinfo,
+  moreinfoPlaceholder,
 }) {
   return (
     <ContainerCard>
@@ -27,10 +28,18 @@ function Cards({
       <H1>{title}</H1>
       <P>{description}</P>
       <P>{category}</P>
-      <P>{usersOnGroup}</P>
       {showButton && (
-        <button className="btn-primary" onClick={() => callback()}>
+        <button
+          className="btn-primary"
+          style={{ marginBottom: 20 }}
+          onClick={() => callback()}
+        >
           {placeholder}
+        </button>
+      )}
+      {moreinfo && (
+        <button className="btn-primary" onClick={() => callback()}>
+          {moreinfoPlaceholder}
         </button>
       )}
     </ContainerCard>
