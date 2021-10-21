@@ -2,7 +2,7 @@ import group_members from "./../../Utils/Assets/group_members.png";
 import goal from "./../../Utils/Assets/goal.png";
 import event from "./../../Utils/Assets/event.png";
 import { useHistory } from "react-router-dom";
-import jwtDecode from "jwt-decode";
+// import jwtDecode from "jwt-decode";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CgClose } from "react-icons/cg";
@@ -30,8 +30,7 @@ import { useGroup } from "../../Providers/GroupProvider";
 const PopupScreen = ({ setCloseState }) => {
   const { push: goTo } = useHistory();
 
-  const { currentGroup, updateCurrentGroup, userIsOnGroup, validUser } =
-    useGroup();
+  const { currentGroup, updateCurrentGroup, userIsOnGroup } = useGroup();
 
   const { id, name, description, users_on_group, goals, activities, category } =
     currentGroup;
@@ -52,38 +51,38 @@ const PopupScreen = ({ setCloseState }) => {
   };
 
   const token = JSON.parse(localStorage.getItem("@Quero_token"));
-  const { user_id } = jwtDecode(token);
 
-  const args = { group_id: id, token };
+  // const alreadyOnGroup = users_on_group.some(({ id }) => id === user_id);
 
-  const alreadyOnGroup = users_on_group.some(({ id }) => id === user_id);
+  const handleSubscribe = async () => {
+    const args = { group_id: id, token };
 
-  const handleSubscribe = () => {
-    if (alreadyOnGroup) {
-      const { status } = unsubscribeFromGroup(args)
-        .then((resp) => {
-          toast.success("Inscrição cancelada");
-        })
-        .catch((err) => console.log(err));
+    if (userIsOnGroup) {
+      const { status } = await unsubscribeFromGroup(args);
 
       if (status === 200) {
-        toast.success("Inscrição cancelada");
+        toast.success("Inscrição cancelada!");
       }
       if (status >= 500) {
-        toast.warn("Inscrição cancelada");
+        toast.warn("Problemas Internos! Aguarde e tente de novo.");
       }
     }
 
-    if (!alreadyOnGroup) {
-      subscribeToGroup(args)
-        .then((resp) => {
-          toast.success("Inscrito com sucesso!");
-        })
-        .catch((err) => console.log(err.response));
+    if (!userIsOnGroup) {
+      const { status } = await subscribeToGroup(args);
+
+      if (status === 200) {
+        toast.success("Inscrito com sucesso!");
+      }
+      if (status >= 500) {
+        toast.warn("Problemas Internos! Aguarde e tente de novo.");
+      }
     }
+
+    updateCurrentGroup();
   };
 
-  const buttonText = alreadyOnGroup ? "Sair do grupo" : "Se juntar ao grupo";
+  const buttonText = userIsOnGroup ? "Sair do grupo" : "Se juntar ao grupo";
 
   return (
     <BackdropContainer>
