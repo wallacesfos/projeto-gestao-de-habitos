@@ -138,6 +138,7 @@ export const GroupsDashboard = () => {
             description={groups.description}
             category={groups.category}
             callback={() => joinGroup(groups.id)}
+            id={groups.id}
             placeholder="Juntar-se"
             showButton
             key={index}

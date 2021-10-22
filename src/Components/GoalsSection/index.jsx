@@ -1,4 +1,3 @@
-import jwtDecode from "jwt-decode";
 import { toast, ToastContainer } from "react-toastify";
 
 import useGoal from "../../Providers/GoalProvider";
