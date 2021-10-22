@@ -8,7 +8,12 @@ import {
 } from "./style";
 import { useState } from "react";
 
-export default function ActivitForm({ handleCreate, setFormMode }) {
+export default function ActivitForm({
+  handleCreate,
+  handleUpdate,
+  setUpdateMode,
+  updateMode,
+}) {
   const [title, setTitle] = useState("");
 
   const data = new Date();
@@ -23,19 +28,25 @@ export default function ActivitForm({ handleCreate, setFormMode }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = {
-      title: title,
-      realization_time: `${date}T15:00:00Z`,
-    };
+    const data = updateMode
+      ? {
+          title: title,
+        }
+      : {
+          title: title,
+          realization_time: `${date}T15:00:00Z`,
+        };
 
-    await handleCreate(data);
-    setFormMode(false);
+    const requisition = updateMode ? handleUpdate : handleCreate;
+
+    await requisition(data);
+    setUpdateMode(false);
   };
 
   return (
     <BackdropContainer>
       <Container as="form" onSubmit={handleSubmit}>
-        <Title>Nova Atividade</Title>
+        <Title>{updateMode ? "Editar Atividade" : "Nova Atividade"}</Title>
         <InputsBoxs>
           <TextField
             required
@@ -46,22 +57,24 @@ export default function ActivitForm({ handleCreate, setFormMode }) {
             onChange={(e) => setTitle(e.target.value)}
           />
 
-          <TextField
-            label="Prazo - MM/DD/AAAA"
-            type="date"
-            margin="normal"
-            className="margin-left-input margin-right-input"
-            value={date}
-            required
-            onChange={(e) => setDate(e.target.value)}
-          />
+          {!updateMode && (
+            <TextField
+              label="Prazo - MM/DD/AAAA"
+              type="date"
+              margin="normal"
+              className="margin-left-input margin-right-input"
+              value={date}
+              required
+              onChange={(e) => setDate(e.target.value)}
+            />
+          )}
         </InputsBoxs>
         <ButtonBox>
           <button type="submit" className="btn-primary mini">
-            Cadastrar
+            {updateMode ? "Atualizar" : "Cadastrar"}
           </button>
           <button
-            onClick={() => setFormMode(false)}
+            onClick={() => setUpdateMode(false)}
             className="btn-primary mini cancel"
           >
             Cancelar
