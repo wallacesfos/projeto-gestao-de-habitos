@@ -21,8 +21,7 @@ function Cards({
   moreinfo,
   moreinfoPlaceholder,
 }) {
-  const { currentGroup, updateCurrentGroup, userIsOnGroup, validUser } =
-    useGroup();
+  const { updateCurrentGroup } = useGroup();
 
   const [showPopupCard, setShowPoppupCard] = useState(false);
 
