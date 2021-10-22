@@ -11,7 +11,7 @@ import { useState } from "react";
 export default function ActivitForm({
   handleCreate,
   handleUpdate,
-  setUpdateMode,
+  setFormMode,
   updateMode,
 }) {
   const [title, setTitle] = useState("");
@@ -40,7 +40,7 @@ export default function ActivitForm({
     const requisition = updateMode ? handleUpdate : handleCreate;
 
     await requisition(data);
-    setUpdateMode(false);
+    setFormMode(false);
   };
 
   return (
@@ -74,7 +74,7 @@ export default function ActivitForm({
             {updateMode ? "Atualizar" : "Cadastrar"}
           </button>
           <button
-            onClick={() => setUpdateMode(false)}
+            onClick={() => setFormMode(false)}
             className="btn-primary mini cancel"
           >
             Cancelar
