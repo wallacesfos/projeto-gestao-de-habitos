@@ -4,7 +4,6 @@ import { useGroup } from "../../Providers/GroupProvider";
 import { createActivity } from "../../Utils/endpoints/activities";
 import ActivityPopupCard from "../ActivityPopupCard";
 
-import GoalPopupCard from "../GoalPopupCard";
 import GroupCardSection from "../GroupSection";
 import { AsideBar, Item, ItemEmpty } from "./styles";
 
@@ -12,13 +11,8 @@ const ActivitiesSection = ({ activities }) => {
   const { currentGroup } = useGroup();
   const token = JSON.parse(localStorage.getItem("@Quero_token"));
 
-  const {
-    currentActivity,
-    groupActivities,
-    updateCurrentActivity,
-    updateGroupActivities,
-    resetCurrentActivity,
-  } = useActivity();
+  const { currentActivity, updateCurrentActivity, updateGroupActivities } =
+    useActivity();
 
   const deleteToast = () => {
     toast.success("Meta deletada!");

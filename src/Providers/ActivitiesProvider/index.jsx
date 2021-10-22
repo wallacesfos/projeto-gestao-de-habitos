@@ -3,7 +3,6 @@ import {
   getGroupActivities,
   getSpecificActivity,
 } from "../../Utils/endpoints/activities";
-import { getSpecificGoal, getGroupGoals } from "../../Utils/endpoints/goals";
 import { useGroup } from "../GroupProvider";
 
 const ActivitiesContext = createContext();

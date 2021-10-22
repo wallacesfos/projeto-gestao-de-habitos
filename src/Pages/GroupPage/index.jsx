@@ -6,8 +6,6 @@ import AsideMembers from "../../Components/AsideMembers";
 import ConfirmEventButton from "../../Components/ConfirmEventButton";
 import Footer from "../../Components/Footer";
 import GoalsSection from "../../Components/GoalsSection";
-import Header from "../../Components/HeaderDashboard";
-import Nav from "../../Components/Nav";
 import useActivity from "../../Providers/ActivitiesProvider";
 import useGoal from "../../Providers/GoalProvider";
 import { useGroup } from "../../Providers/GroupProvider";
@@ -16,7 +14,6 @@ import {
   unsubscribeFromGroup,
 } from "../../Utils/endpoints/groups";
 import { HeaderBox, Container, SectonBox, BoxMain } from "./styles";
-import logo from "./../../Utils/Assets/logo.png";
 import GenericHeader from "../../Components/GenericHeader";
 
 const GroupPage = () => {
@@ -30,7 +27,7 @@ const GroupPage = () => {
   useEffect(() => {
     updateGroupGoals();
     updateGroupActivities();
-  }, []);
+  }, []); // eslint-disable-line
 
   const { id, name, description, users_on_group: memberList } = currentGroup;
 

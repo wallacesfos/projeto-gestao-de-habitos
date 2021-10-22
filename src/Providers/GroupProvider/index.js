@@ -1,5 +1,5 @@
 import jwtDecode from "jwt-decode";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { getSpecificGroup } from "../../Utils/endpoints/groups";
 
 const group = {
@@ -27,6 +27,7 @@ export const GroupProvider = ({ children }) => {
   const getGroup = async (group_id) => {
     let resp = await getSpecificGroup(group_id);
     setCurrentGroup(resp.data);
+    console.log(resp);
 
     return resp;
   };
