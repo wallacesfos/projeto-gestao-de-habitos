@@ -7,7 +7,7 @@ import { ContainerCard, H1, P } from "./style.js";
 function Cards({
   title = "Title",
   description = "Description",
-  category = "Category",
+  category = "",
   id,
   callback,
   placeholder,
