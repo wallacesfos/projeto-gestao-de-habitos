@@ -1,5 +1,4 @@
-import { GlobalStyle } from "./Utils/globalStyle.js";
-import { GroupsDashboard } from "./Pages/GroupsDashboard/index.js";
+import GlobalStyle from "./Utils/globalStyle.js";
 import { ToastContainer } from "react-toastify";
 import Routes from "./Routes";
 

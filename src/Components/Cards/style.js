@@ -11,7 +11,6 @@ export const ContainerCard = styled.div`
   margin-bottom: 2rem;
   -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
-  @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap");
   @media (min-width: 1024px) {
     margin-right: 1rem;
   }

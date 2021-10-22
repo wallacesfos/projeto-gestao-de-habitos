@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap");
   width: 100vw;
   max-width: 1000px;
   margin: 0 auto;
@@ -30,7 +29,6 @@ export const ContainerNav = styled.div`
   }
 `;
 export const Section = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap");
   width: 100%;
   padding: 10px;
   display: flex;
