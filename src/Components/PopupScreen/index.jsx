@@ -2,7 +2,6 @@ import group_members from "./../../Utils/Assets/group_members.png";
 import goal from "./../../Utils/Assets/goal.png";
 import event from "./../../Utils/Assets/event.png";
 import { useHistory } from "react-router-dom";
-// import jwtDecode from "jwt-decode";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CgClose } from "react-icons/cg";
@@ -45,14 +44,16 @@ const PopupScreen = ({ setCloseState }) => {
   const goalsAmount = goals.length;
   const activitiesAmount = activities.length;
 
-  const handleClose = () => setCloseState(false);
+  const handleClose = () => {
+    setCloseState(false);
+    updateCurrentGroup();
+  };
   const handleMoreInfo = () => {
     goTo("/group-page");
+    updateCurrentGroup();
   };
 
   const token = JSON.parse(localStorage.getItem("@Quero_token"));
-
-  // const alreadyOnGroup = users_on_group.some(({ id }) => id === user_id);
 
   const handleSubscribe = async () => {
     const args = { group_id: id, token };
