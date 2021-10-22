@@ -115,8 +115,6 @@ export const GroupsDashboard = () => {
             moreinfo
             moreinfoPlaceholder="Mais informações"
             key={index}
-            delet
-            edit
           />
         ))}
         <NewCard callback={showPopUp} />
