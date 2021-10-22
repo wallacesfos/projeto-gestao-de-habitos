@@ -19,10 +19,10 @@ function App() {
       />
       {/* Same as */}
       <ToastContainer />
-      <GlobalStyle />
       <Routes />
       {/* <Register /> */}
       {/* <GroupsDashboard /> */}
+      <GlobalStyle />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ContainerNav = styled.ul`
-  @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap");
   width: 100%;
   text-align: center;
   display: flex;
@@ -9,12 +8,16 @@ export const ContainerNav = styled.ul`
   margin: 10px 0px;
   font-size: 1.2rem;
   justify-content: center;
-  li {
-    /* flex-basis: 50%; */
+  a {
     font-family: "Red Hat Text", sans-serif;
     font-weight: 600;
     color: var(--color-cinzaEscuro);
-    padding: 10px 10px;
+  }
+  li {
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 600;
+    color: var(--color-cinzaEscuro);
+    padding: 10px 5px;
     line-height: 30px;
   }
   li a {
@@ -29,7 +32,7 @@ export const ContainerNav = styled.ul`
   @media (min-width: 800px) {
     li {
       /* flex-basis: 40%; */
-      padding: 5px 10px;
+      padding: 5px 5px;
     }
   }
   .ButtonOut {
@@ -69,5 +72,31 @@ export const Newsletter = styled.div`
     font-weight: 600;
     color: var(--color-cinzaEscuro);
     color: var(--color-cinzaEscuro);
+  }
+`;
+export const ContainerModal = styled.div`
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .Modal {
+    width: 100%;
+    max-width: 800px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
   }
 `;

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap');
+    /* @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap'); */
 
     :root{
         --orange-main: #FF6400;
@@ -16,9 +16,9 @@ export const GlobalStyle = createGlobalStyle`
         --black: #000000;
     }
     body{
-        @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap'); */
         background-color: var(--background);
-        font-family: "Red Hat Text", sans-serif;
+        font-family: "Red Hat Text";
     }
     body,div,main,section,ul,li,a,h1,h2,h3,h4,h5,h6{
         padding: 0;
@@ -27,13 +27,19 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         list-style: none;
     }
-
+    li,a,h1,h2,h3,h4,h5,h6,button{
+        /* @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap'); */
+        font-family: "Red Hat Text";
+    }
+    li,a,h1,h2,h3,h4,h5,h6{
+        font-weight: 600;
+    }
     body{
         background-color: var(--background)
     }
 
     .btn-primary{
-        @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap'); */
         background-color: #FF6400 !important;
         border-radius: 150px;
         width: 200px;

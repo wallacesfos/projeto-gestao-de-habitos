@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const Container = styled.ul`
-  @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap");
+  /* @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap"); */
   width: 100%;
   min-height: 100px;
   background-color: var(--background-white);
