@@ -16,7 +16,7 @@ export default createGlobalStyle`
     }
     body{
         background-color: var(--background);
-        font-family: "Red Hat Text", sans-serif;
+        font-family: "Red Hat Text";
     }
     body,div,main,section,ul,li,a,h1,h2,h3,h4,h5,h6{
         padding: 0;
@@ -25,7 +25,12 @@ export default createGlobalStyle`
         text-decoration: none;
         list-style: none;
     }
-
+    li,a,h1,h2,h3,h4,h5,h6,button{
+        font-family: "Red Hat Text";
+    }
+    li,a,h1,h2,h3,h4,h5,h6{
+        font-weight: 600;
+    }
     body{
         background-color: var(--background)
     }
