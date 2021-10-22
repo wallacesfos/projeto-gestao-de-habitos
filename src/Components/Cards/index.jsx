@@ -21,8 +21,7 @@ function Cards({
   moreinfo,
   moreinfoPlaceholder,
 }) {
-  const { currentGroup, updateCurrentGroup, userIsOnGroup, validUser } =
-    useGroup();
+  const { updateCurrentGroup } = useGroup();
 
   const [showPopupCard, setShowPoppupCard] = useState(false);
 
@@ -33,7 +32,7 @@ function Cards({
 
   const limitDescription =
     description.length > 30
-      ? description.substring(0, 26) + "..."
+      ? description.substring(0, 20) + "..."
       : description;
 
   const limitTitle = title.length > 16 ? title.substring(0, 12) + "..." : title;
