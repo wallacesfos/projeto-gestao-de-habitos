@@ -1,5 +1,5 @@
 import jwtDecode from "jwt-decode";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { getSpecificGroup } from "../../Utils/endpoints/groups";
 
 const group = {

@@ -26,12 +26,10 @@ export default function Habits() {
   const [categoryHabit, setCategoryHabit] = useState("");
   const [difficultyHabit, setDifficultyHabit] = useState("");
   const [frequencyHabit, setFrequencyHabit] = useState("");
-  const [achievedHabit, setAchieved] = useState(false);
-  const [howMuchAchievedHabit, setHowMuchAchievedHabit] = useState(0);
+  const [achievedHabit] = useState(false);
   const [idHabit, setIdHabit] = useState(0);
   const [searchInput, setSearchInput] = useState("");
   const token = JSON.parse(localStorage.getItem("@Quero_token"));
-  const [user, setUser] = useState(0);
   const { user_id } = jwtDecode(token);
   const resetInputsHabits = () => {
     setTitleHabit("");
@@ -106,7 +104,7 @@ export default function Habits() {
   };
   useEffect(() => {
     loadHabits();
-  }, []);
+  }, []); // eslint-disable-line
   return (
     <>
       <Container>
