@@ -11,16 +11,23 @@ import {
 } from "./styles";
 import ConfirmEventButton from "../ConfirmEventButton";
 import useActivity from "../../Providers/ActivitiesProvider";
-import { deleteActivity } from "../../Utils/endpoints/activities";
+import {
+  deleteActivity,
+  updateActivity,
+} from "../../Utils/endpoints/activities";
 import dateFormater from "../../Utils/dateFormater";
+import ActivitForm from "../ActivitForm";
+import { useState } from "react";
 
-const ActivityPopupCard = ({ deleteToast }) => {
+const ActivityPopupCard = () => {
   const {
     currentActivity,
     updateCurrentActivity,
     updateGroupActivities,
     resetCurrentActivity,
   } = useActivity();
+
+  const [updateMode, setUpdateMode] = useState(false);
 
   const { id, title, realization_time } = currentActivity;
 
@@ -41,6 +48,17 @@ const ActivityPopupCard = ({ deleteToast }) => {
 
   const formatedDate = dateFormater(realization_time);
 
+  const handleUpdate = async (data) => {
+    const resp = await updateActivity({ activity_id: id, body: data, token });
+
+    if (resp.status === 204) {
+      toast.success("Meta deletada!");
+    }
+
+    updateGroupActivities();
+    updateCurrentActivity();
+  };
+
   return (
     <BackdropContainer>
       <ToastContainer />
@@ -56,8 +74,12 @@ const ActivityPopupCard = ({ deleteToast }) => {
           {...{ handleClick: handleDelete, buttonText: "Excluir" }}
         />
 
-        <Button>Editar atividade</Button>
+        <Button onClick={() => setUpdateMode(true)}>Editar atividade</Button>
       </PopupCard>
+
+      {updateMode && (
+        <ActivitForm {...{ updateMode, setUpdateMode, handleUpdate }} />
+      )}
     </BackdropContainer>
   );
 };
