@@ -10,5 +10,4 @@ export const ContainerCard = styled.div`
   margin-right: 2rem;
   cursor: pointer;
   pointer-events: all;
-  @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;600&display=swap");
 `;
