@@ -9,6 +9,9 @@ export const ContainerSearch = styled.div`
   @media (min-width: 800px) {
     flex-direction: row;
   }
+  div {
+    text-align: center;
+  }
 
   .Col-input {
     flex: 1;
