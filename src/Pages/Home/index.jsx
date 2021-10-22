@@ -5,7 +5,6 @@ import svg1 from "../../Utils/Assets/svg1.svg";
 import svg2 from "../../Utils/Assets/svg2.svg";
 import {
   Container,
-  ContainerApp,
   ContainerButton,
   ContainerFooter,
   ContainerNav,
@@ -54,10 +53,6 @@ export default function Home() {
             Cadastre-se
           </button>
         </ContainerButton>
-        <ContainerApp>
-          <div>Baixe Nosso App:</div>
-          <div>Android IOS</div>
-        </ContainerApp>
       </Container>
       <ContainerFooter>
         <div className="footer-col">
