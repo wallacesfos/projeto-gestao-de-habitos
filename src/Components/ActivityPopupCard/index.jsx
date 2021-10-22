@@ -27,7 +27,7 @@ const ActivityPopupCard = () => {
     resetCurrentActivity,
   } = useActivity();
 
-  const [updateMode, setUpdateMode] = useState(false);
+  const [updateMode, setFormMode] = useState(false);
 
   const { id, title, realization_time } = currentActivity;
 
@@ -39,7 +39,7 @@ const ActivityPopupCard = () => {
     const resp = await deleteActivity({ activity_id: id, token });
 
     if (resp.status === 204) {
-      toast.success("Meta deletada!");
+      toast.success("Atividade deletada!");
     }
 
     updateGroupActivities();
@@ -51,8 +51,8 @@ const ActivityPopupCard = () => {
   const handleUpdate = async (data) => {
     const resp = await updateActivity({ activity_id: id, body: data, token });
 
-    if (resp.status === 204) {
-      toast.success("Meta deletada!");
+    if (resp.status === 200) {
+      toast.success("Atividade atualizada!");
     }
 
     updateGroupActivities();
@@ -74,11 +74,11 @@ const ActivityPopupCard = () => {
           {...{ handleClick: handleDelete, buttonText: "Excluir" }}
         />
 
-        <Button onClick={() => setUpdateMode(true)}>Editar atividade</Button>
+        <Button onClick={() => setFormMode(true)}>Editar atividade</Button>
       </PopupCard>
 
       {updateMode && (
-        <ActivitForm {...{ updateMode, setUpdateMode, handleUpdate }} />
+        <ActivitForm {...{ updateMode, setFormMode, handleUpdate }} />
       )}
     </BackdropContainer>
   );
