@@ -14,6 +14,7 @@ import {
   createGroup,
 } from "../../Utils/endpoints/groups";
 import useSubGroup from "../../Providers/currentGroupsProvider";
+import { useGroup } from "../../Providers/GroupProvider";
 const token = JSON.parse(localStorage.getItem("@Quero_token"));
 
 export const GroupsDashboard = () => {
@@ -21,6 +22,7 @@ export const GroupsDashboard = () => {
   const { currentGroups2, updateCurrentGroups2, setCurrentGroups2 } =
     useGroup2();
   const { currentSubs, updateCurrentSubs, setCurrentSubs } = useSubGroup();
+  const { updateCurrentGroup } = useGroup();
 
   const showPopUp = () => {
     newGroups === true ? setNewGroups(false) : setNewGroups(true);
@@ -38,6 +40,7 @@ export const GroupsDashboard = () => {
     });
     updateCurrentSubs();
     updateCurrentGroups2();
+    updateCurrentGroup();
   };
 
   const joinGroup = async (currentId) => {
@@ -55,7 +58,8 @@ export const GroupsDashboard = () => {
           success: "Você se juntou com sucesso",
         }
       )
-      .then(() => updateCurrentGroups2());
+      .then(() => updateCurrentGroups2())
+      .then(() => updateCurrentGroup());
   };
 
   const leaveGroup = async (currentId) => {
@@ -63,9 +67,9 @@ export const GroupsDashboard = () => {
     const token = JSON.parse(localStorage.getItem("@Quero_token"));
     toast
       .promise(
-        unsubscribeFromGroup({ group_id: id, token: token }).then(() =>
-          updateCurrentSubs()
-        ),
+        unsubscribeFromGroup({ group_id: id, token: token })
+          .then(() => updateCurrentSubs())
+          .then(() => updateCurrentGroup()),
         {
           pending: "Carregando",
           success: "Você saiu com sucesso",
@@ -105,18 +109,20 @@ export const GroupsDashboard = () => {
       />
       <h1>Meus Grupos</h1>
       <CardsContainer>
-        {currentSubs.map((subs, index) => (
-          <Cards
-            data={subs}
-            title={subs.name}
-            callbackClose={leaveGroup}
-            description={subs.description}
-            category={subs.category}
-            moreinfo
-            moreinfoPlaceholder="Mais informações"
-            key={index}
-          />
-        ))}
+        {currentSubs[0] &&
+          currentSubs.map((subs, index) => (
+            <Cards
+              data={subs}
+              title={subs.name}
+              callbackClose={leaveGroup}
+              description={subs.description}
+              category={subs.category}
+              moreinfo
+              moreinfoPlaceholder="Mais informações"
+              key={index}
+              id={subs.id}
+            />
+          ))}
         <NewCard callback={showPopUp} />
       </CardsContainer>
       {newGroups === true && <PopUpNewGroup callback={createNewGroup} />}

@@ -23,7 +23,6 @@ export default function SignIn() {
       password: data.password,
     });
 
-    console.log(resp);
     if (resp.status === 401) {
       toast.error("A conta não existe");
     }
@@ -31,7 +30,7 @@ export default function SignIn() {
     if (resp.status === 200) {
       localStorage.clear();
       localStorage.setItem("@Quero_token", JSON.stringify(resp.data.access));
-      history.push('/dashboard');
+      history.push("/dashboard");
     }
   };
 
@@ -79,7 +78,10 @@ export default function SignIn() {
         </Button>
       </Block>
       <Cadastre className="text-login">
-        <p>Não tem cadastro? <Login onClick={() => history.push('./sign-up')}>Cadastre-se</Login></p>
+        <p>
+          Não tem cadastro?{" "}
+          <Login onClick={() => history.push("./sign-up")}>Cadastre-se</Login>
+        </p>
       </Cadastre>
     </Form>
   );

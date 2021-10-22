@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router";
 
 export default function Register() {
-  const history = useHistory()
+  const history = useHistory();
 
   const {
     register,
@@ -25,7 +25,6 @@ export default function Register() {
     };
 
     const resp = await createAcount(formData);
-    console.log(resp);
 
     if (resp.status === 400) {
       toast.error("Usuário já existe");
@@ -33,7 +32,7 @@ export default function Register() {
 
     if (resp.status === 201) {
       toast.success("Conta criada com sucesso!");
-      history.push('/login')
+      history.push("/login");
     }
   };
 
@@ -108,7 +107,10 @@ export default function Register() {
         </Button>
       </Block>
       <Cadastre className="text-login">
-        <p>Já é cadastrado? <Login onClick={() => history.push('/login')}>Faça login</Login></p>
+        <p>
+          Já é cadastrado?{" "}
+          <Login onClick={() => history.push("/login")}>Faça login</Login>
+        </p>
       </Cadastre>
     </Form>
   );

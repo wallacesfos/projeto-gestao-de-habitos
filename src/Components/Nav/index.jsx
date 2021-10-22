@@ -23,7 +23,6 @@ export default function Nav({ dashboard = false, footer = false }) {
       username: userName,
     };
     const resp = await updateProfile({ body, token });
-    console.log(resp);
     if (resp.status === 200) {
       toast.success("Alterado com Sucesso!");
     } else {
