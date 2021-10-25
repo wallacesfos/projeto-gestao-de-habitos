@@ -29,6 +29,10 @@ export default function Login() {
             <Singin />
           </div>
         </Section>
+        <ContainerApp>
+          <div>Baixe Nosso App:</div>
+          <div>Android IOS</div>
+        </ContainerApp>
       </Container>
       <ContainerFooter>
         <div className="footer-col">

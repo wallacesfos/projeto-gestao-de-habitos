@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useHistory } from "react-router";
 import { useGroup } from "../../Providers/GroupProvider/index.js";
 import Close from "../Close/index.jsx";
 import PopupScreen from "../PopupScreen/index.jsx";
@@ -25,11 +24,10 @@ function Cards({
   const { updateCurrentGroup } = useGroup();
 
   const [showPopupCard, setShowPoppupCard] = useState(false);
-  const history = useHistory();
 
   const handleMoreInfo = async () => {
     await updateCurrentGroup(id);
-    history.push("/group-page");
+    setShowPoppupCard(true);
   };
 
   const limitDescription =
