@@ -48,7 +48,7 @@ export const BackdropContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 1;
 
   background-color: rgb(0 0 0 / 0.5);
   backdrop-filter: blur(1px);

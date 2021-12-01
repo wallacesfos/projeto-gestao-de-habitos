@@ -16,8 +16,11 @@ function App() {
         draggable
         pauseOnHover
       />
+      {/* Same as */}
       <ToastContainer />
       <Routes />
+      {/* <Register /> */}
+      {/* <GroupsDashboard /> */}
       <GlobalStyle />
     </div>
   );

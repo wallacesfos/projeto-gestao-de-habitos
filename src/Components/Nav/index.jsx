@@ -1,6 +1,6 @@
 import { TextField } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { ContainerNav, ContainerModal } from "./style.js";
+import { ContainerNav, Newsletter, ContainerModal } from "./style.js";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import ClosePage from "../ClosePage";
@@ -23,6 +23,7 @@ export default function Nav({ dashboard = false, footer = false }) {
       username: userName,
     };
     const resp = await updateProfile({ body, token });
+    console.log(resp);
     if (resp.status === 200) {
       toast.success("Alterado com Sucesso!");
     } else {
@@ -38,6 +39,9 @@ export default function Nav({ dashboard = false, footer = false }) {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/quem-somos">Quem Somos</Link>
+          </li>
+          <li>
             <Link to="/login">Login</Link>
           </li>
           {!footer && (
@@ -45,6 +49,19 @@ export default function Nav({ dashboard = false, footer = false }) {
               <Link to="/sign-up">
                 <button className="btn-primary btn-primary">Cadastre-se</button>
               </Link>
+            </li>
+          )}
+          {footer && (
+            <li>
+              <Newsletter>
+                <h1>Newsletter</h1>
+                <TextField
+                  id="outlined-basic"
+                  label="Email"
+                  variant="outlined"
+                />
+                <button className="btn-primary btn-primary">Enviar</button>
+              </Newsletter>
             </li>
           )}
         </ContainerNav>

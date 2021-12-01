@@ -32,6 +32,10 @@ export default function Subscribe() {
             </div>
           </div>
         </Section>
+        <ContainerApp>
+          <div>Baixe Nosso App:</div>
+          <div>Android IOS</div>
+        </ContainerApp>
       </Container>
       <ContainerFooter>
         <div className="footer-col">
